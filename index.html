@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabina Moda - Scarica l'App ufficiale</title>
+    <title>Sabina Moda - Scarica l'App</title>
     
     <link rel="icon" type="image/png" href="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png">
 
     <style>
-        /* --- STILI BASE --- */
+        /* --- RESET E STILI BASE (Total Black) --- */
         body, html {
             margin: 0;
             padding: 0;
@@ -17,71 +17,128 @@
             align-items: center;
             justify-content: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f9f9f9; /* Grigio chiarissimo per far risaltare il contenuto */
-            color: #333;
+            background-color: #000000; /* Fondo Nero Assoluto */
+            color: #ffffff; /* Testo Bianco per contrasto */
+            overflow: hidden; /* Evita scorrimenti indesiderati su mobile */
         }
 
+        /* --- CONTENITORE PRINCIPALE --- */
         #app-landing-page {
             text-align: center;
-            padding: 20px;
-            max-width: 500px;
-            width: 90%;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* --- LOGO --- */
-        .app-logo {
-            width: 100px;
-            height: 100px;
-            border-radius: 22%; /* Stile icone app Apple/Android */
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        /* --- IMMAGINE PRINCIPALE (Mockup o Logo) --- */
+        .main-showcase {
+            /* Regoliamo la dimensione massima visiva */
+            max-width: 280px; /* Perfetto per un mockup di telefono su mobile */
+            height: auto;
+            margin-bottom: 40px; /* Spazio prima dei pulsanti */
+            
+            /* Animazione leggera all'apertura (Opzionale) */
+            animation: fadeInSlight 1s ease-out;
         }
 
-        /* --- TESTI --- */
+        /* --- TESTI (Opzionali, de-commenta nel codice HTML se vuoi usarli) --- */
         h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             margin: 0 0 10px 0;
-            color: #000;
+            color: #fff;
+            letter-spacing: -1px;
         }
 
         p.tagline {
-            font-size: 1rem;
-            color: #666;
+            font-size: 1.1rem;
+            color: #aaa; /* Grigio chiaro per non appesantire */
             line-height: 1.5;
-            margin-bottom: 30px;
+            margin: 0 auto 40px auto;
+            max-width: 400px;
         }
 
-        /* --- PULSANTE SMART --- */
+        /* --- CONTENITORE PULSANTI (Allineamento Garantito) --- */
+        .download-buttons {
+            display: flex;
+            flex-wrap: wrap; /* Mette in colonna su schermi molto stretti */
+            justify-content: center;
+            align-items: center; /* Allineamento verticale perfetto */
+            gap: 20px; /* Spazio tra i due pulsanti */
+            width: 100%;
+        }
+
+        /* Stile comune per i link dei pulsanti */
         .download-btn {
             display: inline-block;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, opacity 0.2s ease;
             text-decoration: none;
+            border: none;
+            padding: 0;
+            background: transparent;
         }
 
+        /* Effetto Hover (Ingrandimento leggero) */
         .download-btn:hover {
-            transform: scale(1.05);
+            transform: scale(1.06);
         }
 
-        #store-badge {
-            height: 65px; /* Altezza perfetta e uniforme */
-            width: auto;
+        /* Effetto Click (Pressione) */
+        .download-btn:active {
+            transform: scale(0.98);
+            opacity: 0.8;
+        }
+
+        /* STILE DELLE IMMAGINI BADGE (Il segreto dell'uniformità) */
+        .download-btn img {
+            /* Altezza fissa e identica per entrambi i badge ritagliati */
+            height: 60px; 
+            width: auto; /* La larghezza si adatta mantenendo le proporzioni */
             display: block;
-            margin: 0 auto;
+            border-radius: 9px; /* Arrotondamento standard dei badge */
+            
+            /* Rimuove eventuali bordi/ombre predefinite */
+            box-shadow: 0 4px 15px rgba(255,255,255,0.05); /* Ombra leggerissima bianca */
+            border: none;
         }
 
-        #fallback-text {
-            margin-top: 20px;
-            font-size: 0.85rem;
-            color: #999;
+        /* --- ANIMAZIONE FADE-IN --- */
+        @keyframes fadeInSlight {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        #fallback-text a {
-            color: #007aff;
-            text-decoration: none;
+        /* --- RESPONSIVE (MOBILE) --- */
+        @media (max-width: 600px) {
+            #app-landing-page {
+                padding: 20px;
+            }
+
+            .main-showcase {
+                max-width: 220px; /* Leggermente più piccolo su telefoni stretti */
+                margin-bottom: 30px;
+            }
+
+            h1 { font-size: 1.6rem; }
+            p.tagline { font-size: 1rem; margin-bottom: 30px; }
+
+            .download-buttons {
+                /* gap: 15px; /* Riduciamo lo spazio su mobile */
+            }
+
+            .download-btn img {
+                height: 55px; /* Badge leggermente più piccoli su mobile */
+            }
+        }
+        
+        /* Gestione orientamento orizzontale su mobile (Landscape) */
+        @media (max-height: 500px) {
+            .main-showcase { display: none; } /* Nascondiamo l'immagine se c'è poco spazio verticale */
+            #app-landing-page { justify-content: center; }
         }
     </style>
 </head>
@@ -89,53 +146,22 @@
 
 <div id="app-landing-page">
     
-    <img src="https://via.placeholder.com/100" alt="Sabina Moda Logo" class="app-logo">
+    <img src="https://i.postimg.cc/q7Y4444X/sabina-moda-placeholder.png" alt="Sabina Moda Showcase" class="main-showcase">
 
-    <h1>Sabina Moda</h1>
-    <p class="tagline">Tutta la moda che ami, a portata di click. Scarica la nostra app ufficiale per un'esperienza esclusiva.</p>
+    ' se vuoi mostrare titolo e descrizione) -->
+    <div class="download-buttons">
+        
+        <a href="IL_TUO_LINK_APP_STORE" class="download-btn" target="_blank" rel="noopener">
+            <img src="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png" alt="Scarica su App Store">
+        </a>
 
-    <a href="#" id="smart-download-btn" class="download-btn" target="_blank">
-        <img id="store-badge" src="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png" alt="Scarica l'App">
-    </a>
+        <a href="IL_TUO_LINK_GOOGLE_PLAY" class="download-btn" target="_blank" rel="noopener">
+            <img src="https://i.postimg.cc/H8yMh8f8/google-play-badge-clean.png" alt="Disponibile su Google Play">
+        </a>
 
-    <p id="fallback-text">Rilevamento dispositivo in corso...</p>
+    </div>
+
 </div>
-
-<script>
-(function() {
-    // --- 1. CONFIGURA I TUOI LINK REALI QUI ---
-    const linkApple = "https://apps.apple.com/it/app/TUO_ID";
-    const linkAndroid = "https://play.google.com/store/apps/details?id=TUO_ID";
-    const linkDesktop = "https://www.sabinamoda.com/info"; // Una pagina di backup se vuoi
-
-    const btn = document.getElementById('smart-download-btn');
-    const badge = document.getElementById('store-badge');
-    const text = document.getElementById('fallback-text');
-
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    // --- 2. LOGICA DI RICONOSCIMENTO ---
-    if (/android/i.test(userAgent)) {
-        // DISPOSITIVO ANDROID
-        btn.href = linkAndroid;
-        badge.src = "https://i.postimg.cc/H8yMh8f8/google-play-badge-clean.png";
-        text.innerText = "Disponibile su Google Play Store";
-    } 
-    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        // DISPOSITIVO APPLE
-        btn.href = linkApple;
-        badge.src = "https://i.postimg.cc/85z1X84w/app-store-badge-clean.png";
-        text.innerText = "Disponibile su Apple App Store";
-    } 
-    else {
-        // COMPUTER DESKTOP
-        btn.href = linkDesktop;
-        text.innerHTML = "Visita questo sito dal tuo smartphone per scaricare l'app.<br><br>Oppure <a href='"+linkDesktop+"'>scopri di più qui</a>.";
-        // Opzionale: mostriamo entrambi i badge se è desktop
-        badge.style.display = "none"; 
-    }
-})();
-</script>
 
 </body>
 </html>
