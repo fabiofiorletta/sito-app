@@ -14,26 +14,26 @@
             padding: 0;
             height: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column; /* Cambiato per allineare gli elementi verticalmente */
+            align-items: center; /* Centra orizzontalmente */
+            justify-content: flex-start; /* Posiziona i contenuti dall'alto */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #000000; /* Sfondo Nero */
             color: #ffffff;
             overflow: hidden;
+            padding-top: 50px; /* Spazio dal bordo superiore */
         }
 
         #app-landing-page {
             text-align: center;
-            padding: 20px;
             max-width: 600px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
 
-        /* --- IL TUO LOGO --- */
+        /* --- IL TUO LOGO IN ALTO --- */
         .main-showcase {
             max-width: 280px; 
             height: auto;
@@ -41,7 +41,7 @@
             animation: fadeInSlight 1s ease-out;
         }
 
-        /* --- CONTENITORE PULSANTI --- */
+        /* --- CONTENITORE PULSANTI IN BASSO --- */
         .download-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -49,6 +49,8 @@
             align-items: center;
             gap: 20px;
             width: 100%;
+            margin-top: auto; /* Sposta i pulsanti verso il basso */
+            padding-bottom: 50px; /* Spazio dal bordo inferiore */
         }
 
         .download-btn {
@@ -76,9 +78,12 @@
 
         /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 600px) {
+            body, html {
+                padding-top: 30px; /* Ridotto per mobile */
+            }
             .main-showcase {
                 max-width: 220px;
-                margin-bottom: 40px;
+                margin-bottom: 30px;
             }
             .download-btn img {
                 height: 55px;
@@ -86,6 +91,7 @@
             .download-buttons {
                 flex-direction: column; /* I bottoni si incolonnano sui telefoni piccoli */
                 gap: 15px;
+                padding-bottom: 30px; /* Ridotto per mobile */
             }
         }
     </style>
