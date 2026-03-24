@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabina Moda - Scarica l'App</title>
+    
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png">
+
+    <style>
+        /* --- RESET E STILI BASE --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Contenuti dall'alto */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #000000; /* Fondo Nero */
+            color: #ffffff;
+            overflow-x: hidden; /* Evita scorrimento orizzontale */
+            padding-top: 60px; /* Spazio elegante in alto */
+        }
+
+        /* --- CONTENITORE CENTRALE --- */
+        #app-landing-page {
+            text-align: center;
+            /* Definiamo la larghezza cardine basata sul logo */
+            width: 280px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* --- 1. IL LOGO (logo.png) --- */
+        .main-logo {
+            width: 100%; /* Prende tutta la larghezza del padre (280px) */
+            height: auto;
+            margin-bottom: 20px; /* Spazio stretto prima della scritta */
+            animation: fadeInSlight 1s ease-out;
+            display: block;
+        }
+
+        /* --- 2. LA SCRITTA (scritta-app.png) --- */
+        .app-headline-img {
+            width: 100%; /* Stessa larghezza del logo (280px) */
+            height: auto;
+            margin-bottom: 60px; /* Spazio ampio prima dei bottoni */
+            animation: fadeInSlight 1.2s ease-out;
+            display: block;
+        }
+
+        /* --- 3. CONTENITORE PULSANTI (80% del logo) --- */
+        .download-buttons {
+            /* 80% di 280px = ~224px */
+            width: 80%; 
+            display: flex;
+            flex-direction: column; /* In colonna per precisione geometrica */
+            justify-content: center;
+            align-items: center;
+            gap: 15px; /* Spazio tra i due pulsanti */
+            margin-top: auto; /* Spinge verso il basso se c'è spazio */
+            padding-bottom: 40px;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%; /* Il link prende tutta la larghezza dell'80% */
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Badge uniformi che si adattano alla larghezza del link */
+        .download-btn img {
+            width: 100%; /* L'immagine riempie il link (l'80% del logo) */
+            height: auto; /* Altezza automatica per mantenere proporzioni */
+            display: block;
+            border-radius: 9px;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+        }
+
+        /* --- ANIMAZIONE --- */
+        @keyframes fadeInSlight {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- MOBILE OPTIMIZATION --- */
+        @media (max-width: 480px) {
+            body, html {
+                padding-top: 40px;
+            }
+            #app-landing-page {
+                width: 240px; /* Logo leggermente più piccolo su mobile */
+            }
+            .app-headline-img {
+                margin-bottom: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="app-landing-page">
+    
+    <img src="logo.png" alt="Sabina Logo" class="main-logo">
+
+    <img src="scritta-app3.png" alt="SCARICA LA NOSTRA APP" class="app-headline-img">
+
+    <div class="download-buttons">
+        
+        <a href="https://apps.apple.com/app/sabina/id6760361575" class="download-btn" target="_blank" rel="noopener">
+            <img src="logoapple.png" alt="App Store">
+        </a>
+
+        <a href="IL_TUO_LINK_GOOGLE_PLAY" class="download-btn" target="_blank" rel="noopener">
+            <img src="logogoogle.png" alt="Google Play">
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
 
