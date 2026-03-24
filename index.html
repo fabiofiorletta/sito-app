@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabina Moda - Scarica l'App ufficiale</title>
+    
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png">
+
+    <style>
+        /* --- STILI BASE --- */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f9f9f9; /* Grigio chiarissimo per far risaltare il contenuto */
+            color: #333;
+        }
+
+        #app-landing-page {
+            text-align: center;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        /* --- LOGO --- */
+        .app-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 22%; /* Stile icone app Apple/Android */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- TESTI --- */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: #000;
+        }
+
+        p.tagline {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* --- PULSANTE SMART --- */
+        .download-btn {
+            display: inline-block;
+            transition: transform 0.2s ease;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+
+        #store-badge {
+            height: 65px; /* Altezza perfetta e uniforme */
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #fallback-text {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        #fallback-text a {
+            color: #007aff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app-landing-page">
+    
+    <img src="https://via.placeholder.com/100" alt="Sabina Moda Logo" class="app-logo">
+
+    <h1>Sabina Moda</h1>
+    <p class="tagline">Tutta la moda che ami, a portata di click. Scarica la nostra app ufficiale per un'esperienza esclusiva.</p>
+
+    <a href="#" id="smart-download-btn" class="download-btn" target="_blank">
+        <img id="store-badge" src="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png" alt="Scarica l'App">
+    </a>
+
+    <p id="fallback-text">Rilevamento dispositivo in corso...</p>
+</div>
+
+<script>
+(function() {
+    // --- 1. CONFIGURA I TUOI LINK REALI QUI ---
+    const linkApple = "https://apps.apple.com/it/app/TUO_ID";
+    const linkAndroid = "https://play.google.com/store/apps/details?id=TUO_ID";
+    const linkDesktop = "https://www.sabinamoda.com/info"; // Una pagina di backup se vuoi
+
+    const btn = document.getElementById('smart-download-btn');
+    const badge = document.getElementById('store-badge');
+    const text = document.getElementById('fallback-text');
+
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // --- 2. LOGICA DI RICONOSCIMENTO ---
+    if (/android/i.test(userAgent)) {
+        // DISPOSITIVO ANDROID
+        btn.href = linkAndroid;
+        badge.src = "https://i.postimg.cc/H8yMh8f8/google-play-badge-clean.png";
+        text.innerText = "Disponibile su Google Play Store";
+    } 
+    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        // DISPOSITIVO APPLE
+        btn.href = linkApple;
+        badge.src = "https://i.postimg.cc/85z1X84w/app-store-badge-clean.png";
+        text.innerText = "Disponibile su Apple App Store";
+    } 
+    else {
+        // COMPUTER DESKTOP
+        btn.href = linkDesktop;
+        text.innerHTML = "Visita questo sito dal tuo smartphone per scaricare l'app.<br><br>Oppure <a href='"+linkDesktop+"'>scopri di più qui</a>.";
+        // Opzionale: mostriamo entrambi i badge se è desktop
+        badge.style.display = "none"; 
+    }
+})();
+</script>
+
+</body>
+</html>
