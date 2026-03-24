@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png">
 
     <style>
-        /* --- RESET E STILI BASE (Total Black) --- */
+        /* --- RESET E STILI BASE --- */
         body, html {
             margin: 0;
             padding: 0;
@@ -17,15 +17,14 @@
             align-items: center;
             justify-content: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000000; /* Fondo Nero Assoluto */
-            color: #ffffff; /* Testo Bianco per contrasto */
-            overflow: hidden; /* Evita scorrimenti indesiderati su mobile */
+            background-color: #000000; /* Sfondo Nero */
+            color: #ffffff;
+            overflow: hidden;
         }
 
-        /* --- CONTENITORE PRINCIPALE --- */
         #app-landing-page {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             max-width: 600px;
             width: 100%;
             display: flex;
@@ -34,111 +33,60 @@
             justify-content: center;
         }
 
-        /* --- IMMAGINE PRINCIPALE (Mockup o Logo) --- */
+        /* --- IL TUO LOGO --- */
         .main-showcase {
-            /* Regoliamo la dimensione massima visiva */
-            max-width: 280px; /* Perfetto per un mockup di telefono su mobile */
+            max-width: 280px; 
             height: auto;
-            margin-bottom: 40px; /* Spazio prima dei pulsanti */
-            
-            /* Animazione leggera all'apertura (Opzionale) */
+            margin-bottom: 50px;
             animation: fadeInSlight 1s ease-out;
         }
 
-        /* --- TESTI (Opzionali, de-commenta nel codice HTML se vuoi usarli) --- */
-        h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 0 0 10px 0;
-            color: #fff;
-            letter-spacing: -1px;
-        }
-
-        p.tagline {
-            font-size: 1.1rem;
-            color: #aaa; /* Grigio chiaro per non appesantire */
-            line-height: 1.5;
-            margin: 0 auto 40px auto;
-            max-width: 400px;
-        }
-
-        /* --- CONTENITORE PULSANTI (Allineamento Garantito) --- */
+        /* --- CONTENITORE PULSANTI --- */
         .download-buttons {
             display: flex;
-            flex-wrap: wrap; /* Mette in colonna su schermi molto stretti */
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center; /* Allineamento verticale perfetto */
-            gap: 20px; /* Spazio tra i due pulsanti */
+            align-items: center;
+            gap: 20px;
             width: 100%;
         }
 
-        /* Stile comune per i link dei pulsanti */
         .download-btn {
             display: inline-block;
             transition: transform 0.2s ease, opacity 0.2s ease;
             text-decoration: none;
-            border: none;
-            padding: 0;
-            background: transparent;
         }
 
-        /* Effetto Hover (Ingrandimento leggero) */
         .download-btn:hover {
             transform: scale(1.06);
         }
 
-        /* Effetto Click (Pressione) */
-        .download-btn:active {
-            transform: scale(0.98);
-            opacity: 0.8;
-        }
-
-        /* STILE DELLE IMMAGINI BADGE (Il segreto dell'uniformità) */
         .download-btn img {
-            /* Altezza fissa e identica per entrambi i badge ritagliati */
-            height: 60px; 
-            width: auto; /* La larghezza si adatta mantenendo le proporzioni */
+            height: 60px; /* Altezza uniforme */
+            width: auto;
             display: block;
-            border-radius: 9px; /* Arrotondamento standard dei badge */
-            
-            /* Rimuove eventuali bordi/ombre predefinite */
-            box-shadow: 0 4px 15px rgba(255,255,255,0.05); /* Ombra leggerissima bianca */
-            border: none;
+            border-radius: 9px;
+            box-shadow: 0 4px 15px rgba(255,255,255,0.05);
         }
 
-        /* --- ANIMAZIONE FADE-IN --- */
         @keyframes fadeInSlight {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- RESPONSIVE (MOBILE) --- */
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 600px) {
-            #app-landing-page {
-                padding: 20px;
-            }
-
             .main-showcase {
-                max-width: 220px; /* Leggermente più piccolo su telefoni stretti */
-                margin-bottom: 30px;
+                max-width: 220px;
+                margin-bottom: 40px;
             }
-
-            h1 { font-size: 1.6rem; }
-            p.tagline { font-size: 1rem; margin-bottom: 30px; }
-
-            .download-buttons {
-                /* gap: 15px; /* Riduciamo lo spazio su mobile */
-            }
-
             .download-btn img {
-                height: 55px; /* Badge leggermente più piccoli su mobile */
+                height: 55px;
             }
-        }
-        
-        /* Gestione orientamento orizzontale su mobile (Landscape) */
-        @media (max-height: 500px) {
-            .main-showcase { display: none; } /* Nascondiamo l'immagine se c'è poco spazio verticale */
-            #app-landing-page { justify-content: center; }
+            .download-buttons {
+                flex-direction: column; /* I bottoni si incolonnano sui telefoni piccoli */
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -146,17 +94,16 @@
 
 <div id="app-landing-page">
     
-    <img src="https://i.postimg.cc/q7Y4444X/sabina-moda-placeholder.png" alt="Sabina Moda Showcase" class="main-showcase">
+    <img src="logo.png" alt="Sabina Moda Logo" class="main-showcase">
 
-    ' se vuoi mostrare titolo e descrizione) -->
     <div class="download-buttons">
         
         <a href="IL_TUO_LINK_APP_STORE" class="download-btn" target="_blank" rel="noopener">
-            <img src="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png" alt="Scarica su App Store">
+            <img src="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png" alt="App Store">
         </a>
 
         <a href="IL_TUO_LINK_GOOGLE_PLAY" class="download-btn" target="_blank" rel="noopener">
-            <img src="https://i.postimg.cc/H8yMh8f8/google-play-badge-clean.png" alt="Disponibile su Google Play">
+            <img src="https://i.postimg.cc/H8yMh8f8/google-play-badge-clean.png" alt="Google Play">
         </a>
 
     </div>
