@@ -14,84 +14,93 @@
             padding: 0;
             height: 100%;
             display: flex;
-            flex-direction: column; /* Cambiato per allineare gli elementi verticalmente */
-            align-items: center; /* Centra orizzontalmente */
-            justify-content: flex-start; /* Posiziona i contenuti dall'alto */
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Contenuti dall'alto */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000000; /* Sfondo Nero */
+            background-color: #000000; /* Fondo Nero */
             color: #ffffff;
-            overflow: hidden;
-            padding-top: 50px; /* Spazio dal bordo superiore */
+            overflow-x: hidden; /* Evita scorrimento orizzontale */
+            padding-top: 60px; /* Spazio elegante in alto */
         }
 
+        /* --- CONTENITORE CENTRALE --- */
         #app-landing-page {
             text-align: center;
-            max-width: 600px;
-            width: 100%;
+            /* Definiamo la larghezza cardine basata sul logo */
+            width: 280px; 
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* --- IL TUO LOGO IN ALTO --- */
-        .main-showcase {
-            max-width: 280px; 
+        /* --- 1. IL LOGO (logo.png) --- */
+        .main-logo {
+            width: 100%; /* Prende tutta la larghezza del padre (280px) */
             height: auto;
-            margin-bottom: 50px;
+            margin-bottom: 20px; /* Spazio stretto prima della scritta */
             animation: fadeInSlight 1s ease-out;
+            display: block;
         }
 
-        /* --- CONTENITORE PULSANTI IN BASSO --- */
+        /* --- 2. LA SCRITTA (scritta-app.png) --- */
+        .app-headline-img {
+            width: 100%; /* Stessa larghezza del logo (280px) */
+            height: auto;
+            margin-bottom: 60px; /* Spazio ampio prima dei bottoni */
+            animation: fadeInSlight 1.2s ease-out;
+            display: block;
+        }
+
+        /* --- 3. CONTENITORE PULSANTI (80% del logo) --- */
         .download-buttons {
+            /* 80% di 280px = ~224px */
+            width: 80%; 
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column; /* In colonna per precisione geometrica */
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            width: 100%;
-            margin-top: auto; /* Sposta i pulsanti verso il basso */
-            padding-bottom: 50px; /* Spazio dal bordo inferiore */
+            gap: 15px; /* Spazio tra i due pulsanti */
+            margin-top: auto; /* Spinge verso il basso se c'è spazio */
+            padding-bottom: 40px;
         }
 
         .download-btn {
-            display: inline-block;
+            display: block;
+            width: 100%; /* Il link prende tutta la larghezza dell'80% */
             transition: transform 0.2s ease, opacity 0.2s ease;
             text-decoration: none;
         }
 
         .download-btn:hover {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
+        /* Badge uniformi che si adattano alla larghezza del link */
         .download-btn img {
-            height: 60px; /* Altezza uniforme */
-            width: auto;
+            width: 100%; /* L'immagine riempie il link (l'80% del logo) */
+            height: auto; /* Altezza automatica per mantenere proporzioni */
             display: block;
             border-radius: 9px;
             box-shadow: 0 4px 15px rgba(255,255,255,0.05);
         }
 
+        /* --- ANIMAZIONE --- */
         @keyframes fadeInSlight {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* --- MOBILE OPTIMIZATION --- */
-        @media (max-width: 600px) {
+        @media (max-width: 480px) {
             body, html {
-                padding-top: 30px; /* Ridotto per mobile */
+                padding-top: 40px;
             }
-            .main-showcase {
-                max-width: 220px;
-                margin-bottom: 30px;
+            #app-landing-page {
+                width: 240px; /* Logo leggermente più piccolo su mobile */
             }
-            .download-btn img {
-                height: 55px;
-            }
-            .download-buttons {
-                flex-direction: column; /* I bottoni si incolonnano sui telefoni piccoli */
-                gap: 15px;
-                padding-bottom: 30px; /* Ridotto per mobile */
+            .app-headline-img {
+                margin-bottom: 50px;
             }
         }
     </style>
@@ -100,7 +109,9 @@
 
 <div id="app-landing-page">
     
-    <img src="logo.png" alt="Sabina Moda Logo" class="main-showcase">
+    <img src="logo.png" alt="Sabina Logo" class="main-logo">
+
+    <img src="scritta-app.png" alt="SCARICA LA NOSTRA APP" class="app-headline-img">
 
     <div class="download-buttons">
         
