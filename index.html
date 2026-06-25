@@ -1,131 +1,285 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabina Moda - Scarica l'App</title>
+    <title>SABINA | Fast Fashion & Cerimonia - Frosinone, Alatri, Veroli</title>
+    <meta name="description" content="Da 25 anni SABINA veste il tuo stile. Scopri le ultime tendenze fast fashion e la linea Cerimonia Made in Italy nei nostri store di Frosinone, Alatri e Veroli. Entra nel Club per un -15%.">
     
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/85z1X84w/app-store-badge-clean.png">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* --- RESET E STILI BASE --- */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start; /* Contenuti dall'alto */
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #000000; /* Fondo Nero */
-            color: #ffffff;
-            overflow-x: hidden; /* Evita scorrimento orizzontale */
-            padding-top: 60px; /* Spazio elegante in alto */
-        }
-
-        /* --- CONTENITORE CENTRALE --- */
-        #app-landing-page {
-            text-align: center;
-            /* Definiamo la larghezza cardine basata sul logo */
-            width: 280px; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* --- 1. IL LOGO (logo.png) --- */
-        .main-logo {
-            width: 100%; /* Prende tutta la larghezza del padre (280px) */
-            height: auto;
-            margin-bottom: 20px; /* Spazio stretto prima della scritta */
-            animation: fadeInSlight 1s ease-out;
-            display: block;
-        }
-
-        /* --- 2. LA SCRITTA (scritta-app.png) --- */
-        .app-headline-img {
-            width: 100%; /* Stessa larghezza del logo (280px) */
-            height: auto;
-            margin-bottom: 60px; /* Spazio ampio prima dei bottoni */
-            animation: fadeInSlight 1.2s ease-out;
-            display: block;
-        }
-
-        /* --- 3. CONTENITORE PULSANTI (80% del logo) --- */
-        .download-buttons {
-            /* 80% di 280px = ~224px */
-            width: 80%; 
-            display: flex;
-            flex-direction: column; /* In colonna per precisione geometrica */
-            justify-content: center;
-            align-items: center;
-            gap: 15px; /* Spazio tra i due pulsanti */
-            margin-top: auto; /* Spinge verso il basso se c'è spazio */
-            padding-bottom: 40px;
-        }
-
-        .download-btn {
-            display: block;
-            width: 100%; /* Il link prende tutta la larghezza dell'80% */
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            text-decoration: none;
-        }
-
-        .download-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Badge uniformi che si adattano alla larghezza del link */
-        .download-btn img {
-            width: 100%; /* L'immagine riempie il link (l'80% del logo) */
-            height: auto; /* Altezza automatica per mantenere proporzioni */
-            display: block;
-            border-radius: 9px;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.05);
-        }
-
-        /* --- ANIMAZIONE --- */
-        @keyframes fadeInSlight {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- MOBILE OPTIMIZATION --- */
-        @media (max-width: 480px) {
-            body, html {
-                padding-top: 40px;
-            }
-            #app-landing-page {
-                width: 240px; /* Logo leggermente più piccolo su mobile */
-            }
-            .app-headline-img {
-                margin-bottom: 50px;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
     </style>
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "ClothingStore",
+        "name": "SABINA - Frosinone (Main Store)",
+        "image": "https://www.sabinastore.it/assets/img/store-fr.jpg",
+        "telephone": "+390775XXXXXX",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Viale Europa 24/26",
+          "addressLocality": "Frosinone",
+          "postalCode": "03100",
+          "addressRegion": "FR",
+          "addressCountry": "IT"
+        },
+        "priceRange": "$$"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClothingStore",
+        "name": "SABINA - Alatri",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Provinciale 51",
+          "addressLocality": "Alatri",
+          "postalCode": "03011",
+          "addressRegion": "FR",
+          "addressCountry": "IT"
+        },
+        "priceRange": "$$"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClothingStore",
+        "name": "SABINA - Veroli",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Sant'Angelo in Villa 22",
+          "addressLocality": "Veroli",
+          "postalCode": "03029",
+          "addressRegion": "FR",
+          "addressCountry": "IT"
+        },
+        "priceRange": "$$"
+      }
+    ]
+    </script>
 </head>
-<body>
+<body class="bg-stone-50 text-stone-900 antialiased selection:bg-purple-200">
 
-<div id="app-landing-page">
-    
-    <img src="logo.png" alt="Sabina Logo" class="main-logo">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-100 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-3xl font-bold tracking-widest text-stone-900 font-serif">SABINA</a>
+            
+            <div class="hidden md:flex space-x-8 font-medium text-sm tracking-wide uppercase">
+                <a href="#collezioni" class="hover:text-amber-600 transition">Collezioni</a>
+                <a href="#store" class="hover:text-amber-600 transition">I Nostri Store</a>
+                <a href="#club" class="text-purple-600 hover:text-purple-700 transition font-bold">Sabina Club</a>
+            </div>
 
-    <img src="scritta-app3.png" alt="SCARICA LA NOSTRA APP" class="app-headline-img">
+            <a href="#store" class="md:hidden bg-stone-900 text-white px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider">Store</a>
+        </div>
+    </nav>
 
-    <div class="download-buttons">
+    <section class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-60 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-stone-950 via-transparent to-stone-900/50 z-0"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6">
+            <span class="inline-block bg-lime-400 text-stone-900 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6 shadow-md animate-bounce">
+                New Summer Collection 🔥
+            </span>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold font-serif tracking-tight mb-6 leading-tight">
+                Il Fast Fashion incontra l'Eleganza <br><span class="text-amber-400 italic font-normal">Made in Italy</span>
+            </h1>
+            <p class="text-base sm:text-xl text-stone-200 max-w-2xl mx-auto mb-10 font-light">
+                Da 25 anni anticipiamo i tuoi desideri. Scopri i trend della settimana nei nostri store di Frosinone, Alatri e Veroli.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 px-4">
+                <a href="#store" class="bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold px-8 py-4 rounded-xl text-base tracking-wide shadow-xl transition-all transform hover:-translate-y-1 text-center">
+                    📍 TROVA LO STORE PIÙ VICINO
+                </a>
+                <a href="#club" class="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/30 font-semibold px-8 py-4 rounded-xl text-base tracking-wide transition text-center">
+                    ✨ Unisciti al Club (-15%)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="collezioni" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl sm:text-4xl font-bold font-serif mb-4">I Trend della Settimana</h2>
+            <p class="text-stone-500 max-w-md mx-auto">L'anima dinamica della Gen Z e l'eleganza senza tempo firmata Sabina Perciballi.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="group relative rounded-3xl overflow-hidden aspect-4/5 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Fast Fashion Sabina" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-linear-to-t from-purple-950/80 via-purple-900/20 to-transparent flex flex-col justify-end p-8">
+                    <span class="text-lime-300 font-bold uppercase tracking-wider text-xs mb-2">Daily & Instatrend (18-35)</span>
+                    <h3 class="text-white text-3xl font-bold font-serif mb-2">Fast Fashion Daily</h3>
+                    <p class="text-stone-200 text-sm mb-4">Nuovi arrivi ogni giovedì. Capi pop, freschi e accessibili per non passare mai inosservata.</p>
+                    <a href="#store" class="text-white font-semibold text-sm underline decoration-lime-400 decoration-2 underline-offset-4">Vieni a provarli in negozio &rarr;</a>
+                </div>
+            </div>
+
+            <div class="group relative rounded-3xl overflow-hidden aspect-4/5 shadow-lg">
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=800&auto=format&fit=crop" alt="Cerimonia Sabina" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                <div class="absolute inset-0 bg-linear-to-t from-amber-950/80 via-amber-900/20 to-transparent flex flex-col justify-end p-8">
+                    <span class="text-amber-300 font-bold uppercase tracking-wider text-xs mb-2">Esclusivo Made in Italy</span>
+                    <h3 class="text-white text-3xl font-bold font-serif mb-2">Elegante & Cerimonia</h3>
+                    <p class="text-stone-200 text-sm mb-4">La selezione storica curata da Sabina. Tessuti pregiati e tagli sartoriali per i tuoi eventi unici.</p>
+                    <a href="#store" class="text-white font-semibold text-sm underline decoration-amber-400 decoration-2 underline-offset-4">Prenota una consulenza in store &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="store" class="py-20 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold font-serif mb-4">I Nostri 3 Punti Vendita</h2>
+                <p class="text-stone-500 max-w-lg mx-auto">Vieni a toccare con mano la qualità. Ci trovi nel cuore della provincia di Frosinone con parcheggio comodo e shopping assistito.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl p-8 shadow-xs border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-600 font-bold text-lg mb-6">01</div>
+                        <h3 class="text-xl font-bold mb-2">Frosinone <span class="text-xs font-semibold uppercase px-2 py-0.5 bg-stone-100 text-stone-600 rounded ml-2">Main Store</span></h3>
+                        <p class="text-stone-600 text-sm mb-6">Viale Europa 24/26</p>
+                        <div class="space-y-2 border-t border-stone-100 pt-4 mb-8 text-xs text-stone-500">
+                            <p class="flex justify-between"><span>Lun - Sab:</span> <span class="font-semibold text-stone-700">09:00 - 13:00, 16:00 - 20:00</span></p>
+                            <p class="flex justify-between"><span>Domenica:</span> <span class="text-red-500 font-semibold">Chiuso</span></p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=SABINA+Viale+Europa+24+Frosinone" target="_blank" class="w-full bg-stone-900 hover:bg-stone-800 text-white text-center py-3.5 rounded-xl font-semibold text-sm transition tracking-wide block">
+                        🧭 Apri Google Maps
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-xs border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 font-bold text-lg mb-6">02</div>
+                        <h3 class="text-xl font-bold mb-2">Alatri</h3>
+                        <p class="text-stone-600 text-sm mb-6">Via Provinciale 51</p>
+                        <div class="space-y-2 border-t border-stone-100 pt-4 mb-8 text-xs text-stone-500">
+                            <p class="flex justify-between"><span>Lun - Sab:</span> <span class="font-semibold text-stone-700">09:00 - 13:00, 16:00 - 20:00</span></p>
+                            <p class="flex justify-between"><span>Domenica:</span> <span class="text-red-500 font-semibold">Chiuso</span></p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=SABINA+Via+Provinciale+51+Alatri" target="_blank" class="w-full bg-stone-900 hover:bg-stone-800 text-white text-center py-3.5 rounded-xl font-semibold text-sm transition tracking-wide block">
+                        🧭 Apri Google Maps
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-xs border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-lime-100 rounded-2xl flex items-center justify-center text-stone-800 font-bold text-lg mb-6">03</div>
+                        <h3 class="text-xl font-bold mb-2">Veroli</h3>
+                        <p class="text-stone-600 text-sm mb-6">Via Sant'Angelo in Villa 22</p>
+                        <div class="space-y-2 border-t border-stone-100 pt-4 mb-8 text-xs text-stone-500">
+                            <p class="flex justify-between"><span>Lun - Sab:</span> <span class="font-semibold text-stone-700">09:00 - 13:00, 16:00 - 20:00</span></p>
+                            <p class="flex justify-between"><span>Domenica:</span> <span class="text-red-500 font-semibold">Chiuso</span></p>
+                        </div>
+                    </div>
+                    <a href="https://maps.google.com/?q=SABINA+Via+Sant+Angelo+in+Villa+22+Veroli" target="_blank" class="w-full bg-stone-900 hover:bg-stone-800 text-white text-center py-3.5 rounded-xl font-semibold text-sm transition tracking-wide block">
+                        🧭 Apri Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="club" class="py-20 bg-purple-900 text-white relative overflow-hidden">
+        <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-lime-400 rounded-full opacity-20 blur-2xl"></div>
         
-        <a href="https://apps.apple.com/app/sabina/id6760361575" class="download-btn" target="_blank" rel="noopener">
-            <img src="logoapple.png" alt="App Store">
-        </a>
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-lime-300 uppercase tracking-widest text-xs font-bold bg-white/10 px-3 py-1 rounded-full">Esclusivo In-Store</span>
+                <h2 class="text-3xl sm:text-5xl font-bold font-serif mt-4 mb-4">Entra nel Sabina Club 💖</h2>
+                <p class="text-purple-200 max-w-md mx-auto text-sm sm:text-base">Iscriviti subito. Ricevi immediatamente via SMS o Email il tuo **Welcome Coupon del 15%** valido per il tuo prossimo acquisto in uno dei nostri negozi.</p>
+            </div>
 
-        <a href="IL_TUO_LINK_GOOGLE_PLAY" class="download-btn" target="_blank" rel="noopener">
-            <img src="logogoogle.png" alt="Google Play">
-        </a>
+            <form id="fidelityForm" class="bg-white text-stone-900 p-6 sm:p-10 rounded-3xl shadow-2xl space-y-6">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="nome" class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Nome Completo</label>
+                        <input type="text" id="nome" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-purple-500 text-sm transition">
+                    </div>
+                    <div>
+                        <label for="telefono" class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Numero di Telefono</label>
+                        <input type="tel" id="telefono" required placeholder="E.g. 3331234567" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-purple-500 text-sm transition">
+                    </div>
+                </div>
 
-    </div>
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label for="citta" class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Città</label>
+                        <input type="text" id="citta" required placeholder="Frosinone, Alatri..." class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-purple-500 text-sm transition">
+                    </div>
+                    <div>
+                        <label for="nascita" class="block text-xs font-bold uppercase tracking-wider text-stone-500 mb-2">Data di Nascita (Regalo Compleanno! 🎂)</label>
+                        <input type="date" id="nascita" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-purple-500 text-sm transition">
+                    </div>
+                </div>
 
-</div>
+                <div class="flex items-start pt-2">
+                    <input type="checkbox" id="privacy" required class="mt-1 h-4 w-4 text-purple-600 focus:ring-purple-500 border-stone-300 rounded">
+                    <label for="privacy" class="ml-2.5 text-xs text-stone-500 leading-snug">
+                        Acconsento al trattamento dei dati per ricevere il coupon e le promozioni esclusive in store tramite SMS/Email. <a href="#" class="underline text-stone-700">Privacy Policy</a>.
+                    </label>
+                </div>
 
+                <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-stone-950 font-bold py-4 rounded-xl text-base tracking-wide transition transform active:scale-98 shadow-md">
+                    🎁 RICEVI IL TUO SCONTO 15%
+                </button>
+            </form>
+            
+            <div id="successMessage" class="hidden mt-6 bg-lime-400 text-stone-950 p-6 rounded-2xl text-center font-bold shadow-lg">
+                🎉 Ti sei iscritta correttamente! Controlla il tuo smartphone, il tuo codice sconto del 15% è in arrivo. Mostralo alla cassa a Frosinone, Alatri o Veroli!
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="text-white font-serif text-2xl font-bold tracking-widest">SABINA</span>
+                <p class="text-xs mt-2">© 2026 Sabina Perciballi. Tutti i diritti riservati. P.IVA 01234567890</p>
+            </div>
+            
+            <div class="flex space-x-6 text-sm font-semibold uppercase tracking-wider">
+                <a href="https://instagram.com" target="_blank" class="text-white hover:text-amber-400 transition flex items-center gap-1">
+                    📸 Instagram
+                </a>
+                <a href="https://facebook.com" target="_blank" class="text-white hover:text-purple-400 transition flex items-center gap-1">
+                    👥 Facebook
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('fidelityForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Raccolta dati simulata per Lead Generation
+            const data = {
+                nome: document.getElementById('nome').value,
+                telefono: document.getElementById('telefono').value,
+                citta: document.getElementById('citta').value,
+                nascita: document.getElementById('nascita').value
+            };
+
+            console.log('Lead Catturata con Successo:', data);
+
+            // UI UX Feedback istantaneo
+            this.reset();
+            this.classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        });
+    </script>
 </body>
 </html>
