@@ -79,7 +79,7 @@
             transform: translateY(-2px);
         }
 
-        /* HEADER RIGOROSAMENTE NERO */
+        /* HEADER */
         header {
             background-color: #000000;
             border-bottom: 1px solid var(--border-white);
@@ -163,7 +163,7 @@
             margin-right: auto;
         }
 
-        /* BANNER SALDI EDITABILE */
+        /* BANNER SALDI */
         .promo-banner {
             background-color: var(--bg-light);
             color: var(--text-dark);
@@ -238,7 +238,7 @@
 
         .store-img-container {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Formato Rettangolare Orizzontale Rigido */
+            aspect-ratio: 16 / 9;
             background-color: #1A1A1A;
             overflow: hidden;
             border-bottom: 1px solid var(--border-white);
@@ -387,6 +387,19 @@
 
         .btn-submit:hover { background-color: var(--accent-red); }
 
+        #successMessage {
+            display: none;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding: 32px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            margin-top: 32px;
+            border: 2px solid var(--accent-red);
+        }
+
         /* Footer */
         footer {
             padding: 48px 0;
@@ -417,7 +430,7 @@
     <header>
         <div class="container flex nav-container">
             <a href="#" class="logo-container">
-                <img src="assets/img/logo-sabina-white.svg" alt="SABINA" class="logo-img" id="mainLogo" onerror="showFallbackLogo()">
+                <img src="assets/img/logo-sabina-white.svg" alt="SABINA" class="logo-img" id="mainLogo" onerror="tryAlternativePath(this)">
             </a>
             <nav class="nav-menu">
                 <a href="#store" class="nav-link">Punti Vendita</a>
@@ -508,9 +521,10 @@
             <h2>Sabina Club</h2>
             <p>Iscriviti per ricevere in anteprima i nuovi arrivi fast fashion e i regali aziendali dedicati al tuo compleanno.</p>
             
-            <form action="https://formspree.io/f/xoqgendl" method="POST" class="club-form">
-                <input type="hidden" name="_replyto" value="fabio@sabinamoda.com">
-                <input type="hidden" name="_subject" value="Nuova Iscrizione Club SABINA">
+            <form id="fidelityForm" class="club-form">
+                <input type="hidden" name="access_key" value="3e392d64-96c5-4216-865b-5271180ec385">
+                <input type="hidden" name="subject" value="Nuova Iscrizione Club SABINA 🖤">
+                <input type="hidden" name="from_name" value="Sito Web SABINA">
 
                 <div class="form-row form-group">
                     <div>
@@ -519,7 +533,7 @@
                     </div>
                     <div>
                         <label for="telefono">Telefono</label>
-                        <input type="tel" name="Telefono" id="telefono" required placeholder="E.g. +39 333 1234567">
+                        <input type="tel" name="Telefono" id="telefono" required placeholder="ES: +39 333 1234567">
                     </div>
                 </div>
 
@@ -546,8 +560,12 @@
                     </label>
                 </div>
 
-                <button type="submit" class="btn-submit">Invia e Iscriviti</button>
+                <button type="submit" class="btn-submit" id="submitBtn">Invia e Iscriviti</button>
             </form>
+
+            <div id="successMessage">
+                🖤 Grazie per esserti iscritta! I tuoi dati sono stati registrati. Mostra questa schermata alla cassa in negozio per i tuoi vantaggi.
+            </div>
         </div>
     </section>
 
@@ -564,11 +582,56 @@
     </footer>
 
     <script>
-        // Funzione di sicurezza per l'identità del brand
-        function showFallbackLogo() {
-            const container = document.querySelector('.logo-container');
-            container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#FFFFFF;">SABINA</span>';
+        // Gestione logo se l'asset tarda ad arrivare
+        function tryAlternativePath(imgElement) {
+            if (imgElement.getAttribute('src') === 'assets/img/logo-sabina-white.svg') {
+                imgElement.src = './assets/img/logo-sabina-white.svg';
+            } else {
+                const container = document.querySelector('.logo-container');
+                container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#FFFFFF; text-transform:uppercase;">SABINA</span>';
+            }
         }
+
+        // INVIO BACKGROUND FLUIDO
+        const form = document.getElementById('fidelityForm');
+        const successMsg = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitBtn.innerText = "REGISTRAZIONE IN CORSO...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status == 200) {
+                    form.reset();
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                } else {
+                    alert("Errore: " + res.message);
+                    submitBtn.innerText = "Invia e Iscriviti";
+                    submitBtn.disabled = false;
+                }
+            })
+            .catch(error => {
+                alert("Rete momentaneamente instabile. Riprova.");
+                submitBtn.innerText = "Invia e Iscriviti";
+                submitBtn.disabled = false;
+            });
+        });
     </script>
 </body>
 </html>
