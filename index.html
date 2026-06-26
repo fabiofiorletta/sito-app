@@ -79,35 +79,46 @@
             transform: translateY(-2px);
         }
 
-        /* HEADER */
+        /* HEADER RIGOROSAMENTE NERO */
         header {
             background-color: #000000;
             border-bottom: 1px solid var(--border-white);
             position: sticky;
             top: 0;
             z-index: 100;
+            width: 100%;
         }
 
         .nav-container {
-            justify-content: center; /* Centra il logo di default su mobile */
+            position: relative; /* Necessario per il posizionamento mobile */
+            display: flex;
             align-items: center;
+            justify-content: center; /* Forza la centratura matematica del logo su mobile */
             height: 90px;
         }
 
         @media (min-width: 768px) {
             .nav-container { 
-                justify-content: space-between; /* Ritorna ai lati opposti solo su desktop */
+                justify-content: space-between; /* Su desktop allinea a sinistra e destra */
             }
         }
 
         .logo-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             text-decoration: none;
+            margin: 0 auto; /* Centra autonomamente il blocco */
+        }
+
+        @media (min-width: 768px) {
+            .logo-container {
+                margin: 0; /* Rimuove la centratura forzata solo su desktop */
+            }
         }
 
         .logo-img {
-            max-height: 45px;
+            max-height: 42px;
             width: auto;
             display: block;
         }
