@@ -493,12 +493,57 @@
         </div>
     </section>
 
-    <section id="promo" class="promo-banner">
-        <div class="container flex promo-wrapper">
-            <div class="promo-title">PROMOZIONE ATTIVA 🖤</div>
-            <div class="promo-details">Spendi almeno 35€ nei nostri negozi e ricevi subito un Coupon da 10€ per la nuova collezione.</div>
+    <section id="promo" class="section-padding" style="background-color: #050505; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 60px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;" id="promoGrid">
+                
+                <div>
+                    <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent-red); font-weight: 600; display: block; margin-bottom: 12px;">Evento Attivo</span>
+                    <h2 style="font-size: 1.8rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; color: #FFFFFF;">I Saldi Stagionali SABINA</h2>
+                    <p style="font-size: 0.95rem; font-weight: 200; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; max-width: 550px;">
+                        I saldi sono ufficialmente iniziati in tutte le nostre sedi. Scopri le selezioni Fast Fashion e le collezioni esclusive con imperdibili opportunità di stagione. Clicca sul pulsante per scoprire tutti i dettagli, i reparti inclusi e la locandina ufficiale dell'evento.
+                    </p>
+                    
+                    <a href="promozione.html" style="
+                        display: inline-block;
+                        background-color: var(--accent-red);
+                        color: #FFFFFF;
+                        text-decoration: none;
+                        padding: 14px 28px;
+                        font-size: 0.75rem;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        transition: opacity 0.2s ease;
+                    " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+                        Scopri i Dettagli e Locandina →
+                    </a>
+                </div>
+
+                <div style="justify-self: center; width: 100%; max-width: 280px;">
+                    <a href="promozione.html" style="display: block; text-decoration: none;">
+                        <div style="position: relative; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; aspect-ratio: 3 / 4; background-color: #000;">
+                            <img src="assets/img/locandina-saldi.jpg" alt="Locandina Saldi SABINA" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                        </div>
+                    </a>
+                </div>
+
+            </div>
         </div>
     </section>
+
+    <script>
+        function rwdPromo() {
+            const grid = document.getElementById('promoGrid');
+            if(window.innerWidth >= 768) {
+                grid.style.gridTemplateColumns = '1fr 300px';
+            } else {
+                grid.style.gridTemplateColumns = '1fr';
+            }
+        }
+        window.addEventListener('resize', rwdPromo);
+        window.addEventListener('DOMContentLoaded', rwdPromo);
+    </script>
 
     <section id="store" class="section-padding">
         <div class="container">
