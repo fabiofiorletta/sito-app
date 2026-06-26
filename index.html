@@ -89,9 +89,15 @@
         }
 
         .nav-container {
-            justify-content: space-between;
+            justify-content: center; /* Centra il logo di default su mobile */
             align-items: center;
             height: 90px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-container { 
+                justify-content: space-between; /* Ritorna ai lati opposti solo su desktop */
+            }
         }
 
         .logo-container {
