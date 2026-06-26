@@ -325,7 +325,6 @@
         // Gestione Foto Orizzontale con Fallback automatico
         const imgElem = document.getElementById('store-main-img');
         imgElem.src = currentStore.img;
-        imgElem.onerror = function() {
             // Se non hai ancora caricato la foto reale su GitHub, inserisce una foto stock elegante grigia di moda
             this.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop";
             this.style.filter = "grayscale(100%)";
