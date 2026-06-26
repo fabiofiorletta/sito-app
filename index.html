@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABINA | Il tuo negozio di fiducia - Frosinone, Alatri, Veroli</title>
+    <title>SABINA | Noir Minimalist Fast Fashion - Frosinone, Alatri, Veroli</title>
     <meta name="description" content="Da 25 anni SABINA definisce lo stile. Scopri la nuova promo Saldi nei nostri store di Frosinone, Alatri e Veroli. Entra nel Club per vantaggi esclusivi.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,7 +238,7 @@
 
         .store-img-container {
             width: 100%;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 9; /* Formato Rettangolare Orizzontale Rigido */
             background-color: #1A1A1A;
             overflow: hidden;
             border-bottom: 1px solid var(--border-white);
@@ -429,7 +429,7 @@
     <section class="hero text-center">
         <div class="container">
             <h1>SABINA</h1>
-            <p>25 anni di avanguardia fast fashion curati da SABINA. Entra nel nostro mondo.</p>
+            <p>25 anni di avanguardia fast fashion e stile minimalista curati da Sabina Perciballi. Entra nel nostro mondo.</p>
             <a href="#store" class="btn-accent">Trova lo Store più vicino</a>
         </div>
     </section>
@@ -564,7 +564,7 @@
     </footer>
 
     <script>
-        // Mostra la scritta elegante solo se il file assets/img/logo-sabina-white.svg non viene trovato
+        // Funzione di sicurezza per l'identità del brand
         function showFallbackLogo() {
             const container = document.querySelector('.logo-container');
             container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#FFFFFF;">SABINA</span>';
