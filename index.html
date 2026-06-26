@@ -1,521 +1,633 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABINA - Store Vetrinia</title>
-    <!-- Importazione Google Fonts per un look geometrico e moderno -->
+    <title>SABINA | Noir Minimalist Fast Fashion - Frosinone, Alatri, Veroli</title>
+    <meta name="description" content="Da 25 anni SABINA definisce lo stile. Scopri la nuova promo Saldi nei nostri store di Frosinone, Alatri e Veroli. Entra nel Club per vantaggi esclusivi.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap" rel="stylesheet">
+
     <style>
-        /* RESET & GENERAL STYLES */
-        *, *::before, *::after {
+        :root {
+            --bg-dark: #000000;
+            --bg-light: #FFFFFF;
+            --text-main: #FFFFFF;
+            --text-dark: #000000;
+            --text-muted: #A3A3A3;
+            --accent-red: #FF0000;
+            --border-white: rgba(255, 255, 255, 0.2);
+            --border-dark: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Montserrat', sans-serif;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #000000;
-            color: #ffffff;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        /* PALETTE COLORI (Noir con Accento Rosso) */
-        :root {
-            --bg-black: #000000;
-            --text-white: #ffffff;
-            --accent-red: #ff0000;
-            --card-gray: #121212;
-            --border-gray: #262626;
-        }
-
-        /* CONTAINER REUSABILI */
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .section-padding {
             padding: 80px 0;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--accent-red);
-            margin: 15px auto 0 auto;
-        }
-
-        /* HEADER & NAVIGATION */
-        header {
-            background-color: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid var(--border-gray);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-        }
-
-        .header-wrap {
-            display: table;
-            width: 100%;
-        }
-
-        .logo-area {
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .logo-text {
-            font-size: 2rem;
-            font-weight: 300;
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            border-bottom: 2px solid transparent;
-        }
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .grid { display: grid; }
         
-        .logo-text span {
-            font-weight: 700;
-            letter-spacing: 4px;
-        }
-
-        nav {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: right;
-        }
-
-        nav ul {
-            list-style: none;
+        /* Buttons & Actions */
+        .btn-accent {
             display: inline-block;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            font-size: 0.9rem;
+            background-color: var(--accent-red);
+            color: var(--text-main);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent-red);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            display: table;
-            width: 100%;
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        .hero-cell {
-            display: table-cell;
-            vertical-align: middle;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 8px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #cccccc;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-red);
-            color: var(--text-white);
-            padding: 15px 40px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            padding: 16px 32px;
             border: none;
             border-radius: 0;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            font-size: 0.85rem;
+            width: 100%;
         }
 
-        .btn:hover {
-            background-color: #cc0000;
+        @media (min-width: 768px) {
+            .btn-accent { width: auto; }
+        }
+
+        .btn-accent:hover {
+            opacity: 0.9;
             transform: translateY(-2px);
         }
 
-        /* INFO BOX SALDI (DA LOCANDINA) */
-        .promo-banner {
-            background-color: #ffffff;
-            color: #000000;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 4px solid var(--accent-red);
+        /* HEADER RIGOROSAMENTE NERO */
+        header {
+            background-color: #000000 !important;
+            border-bottom: 1px solid var(--border-white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .promo-banner h2 {
-            font-size: 2rem;
+        .nav-container {
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        /* Supporto per Logo Ufficiale */
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            max-height: 45px; /* Ottimizzato per logo geometrico sottile */
+            width: auto;
+            display: block;
+        }
+
+        .logo-text-fallback {
+            font-weight: 200;
+            letter-spacing: 6px;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+            gap: 32px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu { display: flex; }
+        }
+
+        .nav-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            font-weight: 400;
+            transition: color 0.2s ease;
         }
 
-        .promo-banner .highlight {
-            font-weight: 700;
+        .nav-link:hover {
             color: var(--accent-red);
         }
 
-        /* STORES SECTION */
-        .stores-grid {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: separate;
-            border-spacing: 20px 0;
-            margin-top: 20px;
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid var(--border-white);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 4.5rem; }
+        }
+
+        .hero p {
+            font-size: 1rem;
+            font-weight: 200;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* DINAMICO: BANNER SALDI EDITABILE */
+        .promo-banner {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 35px 0;
+            border-bottom: 1px solid var(--border-white);
+            text-transform: uppercase;
+        }
+
+        .promo-wrapper {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .promo-wrapper { flex-direction: row; gap: 48px; }
+        }
+
+        .promo-title {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .promo-details {
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .promo-details {
+                border-left: 2px solid var(--text-dark);
+                padding-left: 48px;
+                text-align: left;
+            }
+        }
+
+        /* SEZIONE STORE (Card interamente cliccabili e foto orizzontali) */
+        .store-grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        @media (min-width: 768px) {
+            .store-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        /* Il wrapper a diventa la card */
+        .store-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .store-card {
-            display: table-cell;
-            background-color: var(--card-gray);
-            border: 1px solid var(--border-gray);
-            padding: 40px 30px;
-            text-align: center;
-            vertical-align: top;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-white);
+            padding: 0; /* Rimosso padding per far aderire l'immagine in alto */
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .store-card h3 {
-            font-size: 1.5rem;
+        .store-card-link:hover .store-card {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+        }
+
+        /* Container Foto Store - Rettangolare Orizzontale (16:9) */
+        .store-img-container {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Forza tassativamente il formato orizzontale richiesto */
+            background-color: #1A1A1A; /* Fallback visivo se manca la foto */
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-white);
+        }
+
+        .store-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%); /* Stile Noir */
+            transition: filter 0.3s ease;
+        }
+
+        .store-card-link:hover .store-img {
+            filter: grayscale(0%); /* Torna a colori al passaggio per mostrare il negozio reale */
+        }
+
+        .store-content-padding {
+            padding: 32px 24px;
+        }
+
+        .store-name {
+            font-size: 1.25rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-            color: var(--text-white);
-            border-bottom: 1px solid var(--border-gray);
-            padding-bottom: 15px;
+            margin-bottom: 4px;
         }
 
-        .store-card p {
-            font-size: 0.95rem;
-            color: #aaaaaa;
-            margin-bottom: 15px;
-        }
-
-        .store-card .maps-link {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
+        .store-tag {
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-red);
-        }
-
-        .store-card .maps-link:hover {
-            color: #ffffff;
-        }
-
-        /* LEAD GENERATION / CLUB FIDELITY */
-        .club-section {
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        .club-section .section-title {
-            color: #000000;
-        }
-
-        .club-layout {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .club-text {
-            text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            color: #444444;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
+            font-weight: 600;
+            margin-bottom: 16px;
             display: block;
+        }
+
+        .store-info {
             font-size: 0.85rem;
-            font-weight: 700;
+            font-weight: 200;
+            color: var(--text-muted);
+        }
+
+        .action-indicator {
+            margin-top: 24px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 16px;
+        }
+
+        /* Club Section (Lead Gen - Sfondo Bianco) */
+        .club-section {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .club-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+
+        .club-section p {
+            font-weight: 400;
+            color: #555555;
+            max-width: 600px;
+            margin: 0 auto 48px auto;
+            font-size: 0.95rem;
+        }
+
+        .club-form {
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group { margin-bottom: 24px; }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .form-row { grid-template-columns: 1fr 1fr; }
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 8px;
+            color: var(--text-dark);
         }
 
-        .form-control {
+        input, select {
             width: 100%;
-            padding: 15px;
-            border: 1px solid #000000;
-            background-color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            color: #000000;
+            padding: 14px;
+            border: 1px solid var(--border-dark);
+            background-color: #FAFAFA;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            border-radius: 0;
+            outline: none;
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-red);
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .checkbox-group input { width: auto; margin-top: 3px; }
+
+        .checkbox-label {
+            font-size: 0.75rem;
+            color: #666666;
         }
 
         .btn-submit {
-            width: 100%;
-            background-color: #000000;
-            color: #ffffff;
-            padding: 18px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             border: none;
+            width: 100%;
+            padding: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin-top: 32px;
+            transition: background-color 0.2s ease;
         }
 
         .btn-submit:hover {
             background-color: var(--accent-red);
         }
 
-        /* FOOTER */
-        footer {
-            background-color: #000000;
-            border-top: 1px solid var(--border-gray);
-            padding: 50px 0;
+        #successMessage {
+            display: none;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding: 32px;
             text-align: center;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 300;
-            letter-spacing: 6px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-        }
-
-        .social-links {
-            margin-bottom: 30px;
-        }
-
-        .social-links a {
-            display: inline-block;
-            margin: 0 15px;
+            letter-spacing: 1px;
             font-size: 0.9rem;
+            margin-top: 32px;
+            border: 2px solid var(--accent-red);
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border-white);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 2px;
+        }
+
+        .footer-wrapper {
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-wrapper { flex-direction: row; justify-content: space-between; }
+        }
+
+        .footer-socials { display: flex; gap: 24px; }
+        .social-link {
+            color: var(--text-main);
+            text-decoration: none;
             font-weight: 600;
         }
-
-        .social-links a:hover {
-            color: var(--accent-red);
-        }
-
-        .copyright {
-            font-size: 0.8rem;
-            color: #666666;
-            letter-spacing: 1px;
-        }
-
-        /* RESPONSIVE DESIGN (MOBILE-FIRST WORKAROUNDS) */
-        @media (max-width: 768px) {
-            .store-card {
-                display: block;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .stores-grid {
-                display: block;
-                border-spacing: 0;
-            }
-            nav {
-                display: block;
-                text-align: center;
-                margin-top: 15px;
-            }
-            .header-wrap {
-                display: block;
-                text-align: center;
-            }
-            .logo-area {
-                display: block;
-                text-align: center;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            nav ul li {
-                margin: 0 10px;
-            }
-        }
+        .social-link:hover { color: var(--accent-red); }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
-        <div class="container header-wrap">
-            <div class="logo-area">
-                <div class="logo-text">SA<span>BINA</span></div>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#stores">Store</a></li>
-                    <li><a href="#club">Il Club</a></li>
-                </ul>
+        <div class="container flex nav-container">
+            <a href="#" class="logo-container">
+                <img src="assets/img/logo-sabina-white.svg" alt="SABINA" class="logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+                <span id="fallback-logo" class="logo-text-fallback" style="display:none;">SABINA</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#store" class="nav-link">Punti Vendita</a>
+                <a href="#club" class="nav-link">Il Club</a>
             </nav>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-        <div class="hero-cell">
-            <div class="container">
-                <h1>SABINA</h1>
-                <p>Fast Fashion & Made in Italy Elegance</p>
-                <a href="#stores" class="btn">Trova lo Store più vicino</a>
+    <section class="hero flex text-center">
+        <div class="container">
+            <h1>SABINA</h1>
+            <p>25 anni di avanguardia fast fashion e stile minimalista curati da Sabina Perciballi. Entra nel nostro mondo.</p>
+            <a href="#store" class="btn-accent">Trova lo Store più vicino</a>
+        </div>
+    </section>
+
+    <section id="promo" class="promo-banner">
+        <div class="container flex promo-wrapper">
+            <div class="promo-title"><span>🖤</span> PROMOZIONE ATTIVA</div>
+            <div class="promo-details" id="promo-text">Spendi almeno 35€ nei nostri negozi e ricevi subito un Coupon da 10€ per la nuova collezione.</div>
+        </div>
+    </section>
+
+    <section id="store" class="section-padding">
+        <div class="container">
+            <h2 class="text-center" style="font-size: 1.75rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 12px;">I Nostri Store</h2>
+            <p class="text-center" style="color: var(--text-muted); font-size: 0.85rem; font-weight: 200; max-width: 500px; margin: 0 auto 24px auto;">Seleziona un punto vendita per visualizzare foto esclusive, orari dettagliati e contatti telefonici dedicati.</p>
+            
+            <div class="grid store-grid">
+                
+                <a href="frosinone.html" class="store-card-link">
+                    <div class="store-card">
+                        <div class="store-img-container">
+                            <img src="assets/img/store-frosinone.jpg" alt="SABINA Store Frosinone" class="store-img" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop';">
+                        </div>
+                        <div class="store-content-padding">
+                            <h3 class="store-name">Frosinone</h3>
+                            <span class="store-tag">Main Store</span>
+                            <p class="store-info">Viale Europa 24/26</p>
+                            <div class="action-indicator">
+                                <span>Vedi Dettagli Store</span>
+                                <span>→</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="alatri.html" class="store-card-link">
+                    <div class="store-card">
+                        <div class="store-img-container">
+                            <img src="assets/img/store-alatri.jpg" alt="SABINA Store Alatri" class="store-img" onerror="this.src='https://images.unsplash.com/photo-1567401893930-7becd112098e?q=80&w=600&auto=format&fit=crop';">
+                        </div>
+                        <div class="store-content-padding">
+                            <h3 class="store-name">Alatri</h3>
+                            <span class="store-tag">Boutique</span>
+                            <p class="store-info">Via Provinciale 51</p>
+                            <div class="action-indicator">
+                                <span>Vedi Dettagli Store</span>
+                                <span>→</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="veroli.html" class="store-card-link">
+                    <div class="store-card">
+                        <div class="store-img-container">
+                            <img src="assets/img/store-veroli.jpg" alt="SABINA Store Veroli" class="store-img" onerror="this.src='https://images.unsplash.com/photo-1479064555552-3ef4979f8908?q=80&w=600&auto=format&fit=crop';">
+                        </div>
+                        <div class="store-content-padding">
+                            <h3 class="store-name">Veroli</h3>
+                            <span class="store-tag">Concept Store</span>
+                            <p class="store-info">Via Sant'Angelo in Villa 22</p>
+                            <div class="action-indicator">
+                                <span>Vedi Dettagli Store</span>
+                                <span>→</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
 
-    <!-- PROMO BANNER (PRE-SALDI / SALDI) -->
-    <section class="promo-banner">
+    <section id="club" class="section-padding club-section text-center">
         <div class="container">
-            <h2>Special Summer Sale <span class="highlight">30 Giugno - Pre Saldi VIP</span></h2>
-            <p>Su <strong>35€ di acquisti</strong>, ricevi subito un <strong>COUPON DI 10€</strong> valido sull'acquisto successivo!</p>
-        </div>
-    </section>
-
-    <!-- STORES SECTION -->
-    <section id="stores" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">I Nostri Store</h2>
-            <div class="stores-grid">
+            <h2>Sabina Club</h2>
+            <p>Iscriviti per ricevere in anteprima i nuovi arrivi fast fashion e i regali aziendali dedicati al tuo compleanno.</p>
+            
+            <form action="https://formspree.io/f/xoqgendl" method="POST" id="fidelityForm" class="club-form">
                 
-                <!-- STORE FROSINONE -->
-                <div class="store-card">
-                    <h3>Frosinone</h3>
-                    <p><strong>Indirizzo:</strong> Viale Europa 24/26</p>
-                    <p><strong>Orari:</strong> Lun-Sab: 09:00 - 13:00 / 16:00 - 20:00</p>
-                    <p>Domenica Chiuso</p>
-                    <a href="https://maps.google.com" target="_blank" class="maps-link">Apri in Maps &rarr;</a>
-                </div>
+                <input type="hidden" name="_to" value="fabio@sabinamoda.com">
+                <input type="hidden" name="_subject" value="Nuova Iscrizione Club SABINA!">
 
-                <!-- STORE ALATRI -->
-                <div class="store-card">
-                    <h3>Alatri</h3>
-                    <p><strong>Indirizzo:</strong> Via Provinciale 51</p>
-                    <p><strong>Orari:</strong> Lun-Sab: 09:00 - 13:00 / 16:00 - 20:00</p>
-                    <p>Domenica Chiuso</p>
-                    <a href="https://maps.google.com" target="_blank" class="maps-link">Apri in Maps &rarr;</a>
-                </div>
-
-                <!-- STORE VEROLI -->
-                <div class="store-card">
-                    <h3>Veroli</h3>
-                    <p><strong>Indirizzo:</strong> Via Sant'Angelo in Villa 22</p>
-                    <p><strong>Orari:</strong> Lun-Sab: 09:00 - 13:00 / 16:00 - 20:00</p>
-                    <p>Domenica Chiuso</p>
-                    <a href="https://maps.google.com" target="_blank" class="maps-link">Apri in Maps &rarr;</a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- LEAD GENERATION / CLUB FIDELITY -->
-    <section id="club" class="section-padding club-section">
-        <div class="container">
-            <h2 class="section-title">Entra nel Club SABINA</h2>
-            <div class="club-layout">
-                <p class="club-text">Iscriviti subito al Club per attivare la tua Fidelity Card digitale. Riceverai un Welcome Coupon del 15% e un regalo esclusivo per il tuo compleanno!</p>
-                
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nome Completo</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Es. Giulia Rossi" required>
+                <div class="form-row form-group">
+                    <div>
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" name="Nome" id="nome" required>
                     </div>
-                    <div class="form-group">
-                        <label for="phone">Numero di Telefono</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="Es. 3331234567" required>
+                    <div>
+                        <label for="telefono">Telefono</label>
+                        <input type="tel" name="Telefono" id="telefono" required placeholder="E.g. +39 333 1234567">
                     </div>
-                    <div class="form-group">
-                        <label for="city">Lo Store più vicino a te</label>
-                        <select id="city" name="city" class="form-control" required>
-                            <option value="">Seleziona lo store...</option>
-                            <option value="frosinone">Frosinone (Viale Europa)</option>
-                            <option value="alatri">Alatri (Via Provinciale)</option>
-                            <option value="veroli">Veroli (Via Sant'Angelo in Villa)</option>
+                </div>
+
+                <div class="form-row form-group">
+                    <div>
+                        <label for="store-pref">Store Preferito</label>
+                        <select name="Store_Preferito" id="store-pref" required>
+                            <option value="" disabled selected>Seleziona un punto vendita</option>
+                            <option value="Frosinone">Frosinone - Viale Europa</option>
+                            <option value="Alatri">Alatri - Via Provinciale</option>
+                            <option value="Veroli">Veroli - Via Sant'Angelo</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="birthday">Data di Nascita</label>
-                        <input type="date" id="birthday" name="birthday" class="form-control" required>
+                    <div>
+                        <label for="nascita">Data di Nascita</label>
+                        <input type="date" name="Data_di_Nascita" id="nascita" required>
                     </div>
-                    <button type="submit" class="btn-submit">Iscriviti Ora e Ricevi il Coupon</button>
-                </form>
+                </div>
 
+                <div class="checkbox-group">
+                    <input type="checkbox" id="privacy" required>
+                    <label for="privacy" class="checkbox-label">
+                        Acconsento al trattamento dei dati personali per ricevere inviti e regali di compleanno esclusivi in store. <a href="#" style="color: var(--text-dark); font-weight: 600;">Privacy Policy</a>.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">Invia e Iscriviti</button>
+            </form>
+
+            <div id="successMessage">
+                🖤 Dati inoltrati a Fabio. Benvenuta nel Club SABINA. Riceverai a breve le conferme direttamente sul tuo dispositivo.
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <div class="footer-logo">SABINA</div>
-            <div class="social-links">
-                <a href="https://instagram.com" target="_blank">Instagram</a>
-                <a href="https://facebook.com" target="_blank">Facebook</a>
+        <div class="container flex footer-wrapper">
+            <div>
+                <p>© 2026 SABINA. ALL RIGHTS RESERVED. P.IVA 01234567890</p>
             </div>
-            <p class="copyright">&copy; 2026 SABINA. Tutti i diritti riservati. | Privacy Policy</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com" target="_blank" class="social-link">Instagram</a>
+                <a href="https://facebook.com" target="_blank" class="social-link">Facebook</a>
+            </div>
         </div>
     </footer>
 
+    <script>
+        // Gestione asincrona del form per evitare il ricaricamento brutto della pagina di Formspree
+        const form = document.getElementById('fidelityForm');
+        const successMsg = document.getElementById('successMessage');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            
+            // Invia i dati in background a Formspree (che li gira a fabio@sabinamoda.com)
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.reset();
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+            } else {
+                alert('Si è verificato un errore. Riprova più tardi.');
+            }
+        });
+    </script>
 </body>
 </html>
