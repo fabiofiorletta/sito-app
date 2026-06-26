@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABINA | Noir Minimalist Fast Fashion - Frosinone, Alatri, Veroli</title>
+    <title>SABINA | Il tuo negozio di fiducia - Frosinone, Alatri, Veroli</title>
     <meta name="description" content="Da 25 anni SABINA definisce lo stile. Scopri la nuova promo Saldi nei nostri store di Frosinone, Alatri e Veroli. Entra nel Club per vantaggi esclusivi.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,7 +81,7 @@
 
         /* HEADER RIGOROSAMENTE NERO */
         header {
-            background-color: #000000 !important;
+            background-color: #000000;
             border-bottom: 1px solid var(--border-white);
             position: sticky;
             top: 0;
@@ -94,24 +94,16 @@
             height: 90px;
         }
 
-        /* Supporto per Logo Ufficiale */
         .logo-container {
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
 
         .logo-img {
-            max-height: 45px; /* Ottimizzato per logo geometrico sottile */
+            max-height: 45px;
             width: auto;
             display: block;
-        }
-
-        .logo-text-fallback {
-            font-weight: 200;
-            letter-spacing: 6px;
-            font-size: 1.5rem;
-            color: var(--text-main);
-            text-decoration: none;
         }
 
         .nav-menu {
@@ -139,7 +131,8 @@
 
         /* Hero Section */
         .hero {
-            min-height: 70vh;
+            min-height: 65vh;
+            display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
@@ -170,7 +163,7 @@
             margin-right: auto;
         }
 
-        /* DINAMICO: BANNER SALDI EDITABILE */
+        /* BANNER SALDI EDITABILE */
         .promo-banner {
             background-color: var(--bg-light);
             color: var(--text-dark);
@@ -194,9 +187,6 @@
             font-weight: 800;
             font-size: 1.4rem;
             letter-spacing: 3px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .promo-details {
@@ -214,7 +204,7 @@
             }
         }
 
-        /* SEZIONE STORE (Card interamente cliccabili e foto orizzontali) */
+        /* SEZIONE STORE */
         .store-grid {
             grid-template-columns: 1fr;
             gap: 32px;
@@ -225,7 +215,6 @@
             .store-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* Il wrapper a diventa la card */
         .store-card-link {
             text-decoration: none;
             color: inherit;
@@ -235,12 +224,11 @@
         .store-card {
             background-color: var(--bg-dark);
             border: 1px solid var(--border-white);
-            padding: 0; /* Rimosso padding per far aderire l'immagine in alto */
             overflow: hidden;
             height: 100%;
             display: flex;
             flex-direction: column;
-            transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: border-color 0.3s ease, transform 0.3s ease;
         }
 
         .store-card-link:hover .store-card {
@@ -248,11 +236,10 @@
             transform: translateY(-4px);
         }
 
-        /* Container Foto Store - Rettangolare Orizzontale (16:9) */
         .store-img-container {
             width: 100%;
-            aspect-ratio: 16 / 9; /* Forza tassativamente il formato orizzontale richiesto */
-            background-color: #1A1A1A; /* Fallback visivo se manca la foto */
+            aspect-ratio: 16 / 9;
+            background-color: #1A1A1A;
             overflow: hidden;
             border-bottom: 1px solid var(--border-white);
         }
@@ -261,12 +248,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(100%); /* Stile Noir */
+            filter: grayscale(100%);
             transition: filter 0.3s ease;
         }
 
         .store-card-link:hover .store-img {
-            filter: grayscale(0%); /* Torna a colori al passaggio per mostrare il negozio reale */
+            filter: grayscale(0%);
         }
 
         .store-content-padding {
@@ -311,7 +298,7 @@
             padding-top: 16px;
         }
 
-        /* Club Section (Lead Gen - Sfondo Bianco) */
+        /* Club Section */
         .club-section {
             background-color: var(--bg-light);
             color: var(--text-dark);
@@ -381,10 +368,7 @@
 
         .checkbox-group input { width: auto; margin-top: 3px; }
 
-        .checkbox-label {
-            font-size: 0.75rem;
-            color: #666666;
-        }
+        .checkbox-label { font-size: 0.75rem; color: #666666; }
 
         .btn-submit {
             background-color: var(--bg-dark);
@@ -401,22 +385,7 @@
             transition: background-color 0.2s ease;
         }
 
-        .btn-submit:hover {
-            background-color: var(--accent-red);
-        }
-
-        #successMessage {
-            display: none;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            padding: 32px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            margin-top: 32px;
-            border: 2px solid var(--accent-red);
-        }
+        .btn-submit:hover { background-color: var(--accent-red); }
 
         /* Footer */
         footer {
@@ -439,11 +408,7 @@
         }
 
         .footer-socials { display: flex; gap: 24px; }
-        .social-link {
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-        }
+        .social-link { color: var(--text-main); text-decoration: none; font-weight: 600; }
         .social-link:hover { color: var(--accent-red); }
     </style>
 </head>
@@ -452,8 +417,7 @@
     <header>
         <div class="container flex nav-container">
             <a href="#" class="logo-container">
-                <img src="assets/img/logo-sabina-white.svg" alt="SABINA" class="logo-img" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
-                <span id="fallback-logo" class="logo-text-fallback" style="display:none;">SABINA</span>
+                <img src="assets/img/logo-sabina-white.svg" alt="SABINA" class="logo-img" id="mainLogo" onerror="showFallbackLogo()">
             </a>
             <nav class="nav-menu">
                 <a href="#store" class="nav-link">Punti Vendita</a>
@@ -462,18 +426,18 @@
         </div>
     </header>
 
-    <section class="hero flex text-center">
+    <section class="hero text-center">
         <div class="container">
             <h1>SABINA</h1>
-            <p>25 anni di avanguardia fast fashion e stile minimalista curati da Sabina Perciballi. Entra nel nostro mondo.</p>
+            <p>25 anni di avanguardia fast fashion curati da SABINA. Entra nel nostro mondo.</p>
             <a href="#store" class="btn-accent">Trova lo Store più vicino</a>
         </div>
     </section>
 
     <section id="promo" class="promo-banner">
         <div class="container flex promo-wrapper">
-            <div class="promo-title"><span>🖤</span> PROMOZIONE ATTIVA</div>
-            <div class="promo-details" id="promo-text">Spendi almeno 35€ nei nostri negozi e ricevi subito un Coupon da 10€ per la nuova collezione.</div>
+            <div class="promo-title">PROMOZIONE ATTIVA 🖤</div>
+            <div class="promo-details">Spendi almeno 35€ nei nostri negozi e ricevi subito un Coupon da 10€ per la nuova collezione.</div>
         </div>
     </section>
 
@@ -544,10 +508,9 @@
             <h2>Sabina Club</h2>
             <p>Iscriviti per ricevere in anteprima i nuovi arrivi fast fashion e i regali aziendali dedicati al tuo compleanno.</p>
             
-            <form action="https://formspree.io/f/xoqgendl" method="POST" id="fidelityForm" class="club-form">
-                
-                <input type="hidden" name="_to" value="fabio@sabinamoda.com">
-                <input type="hidden" name="_subject" value="Nuova Iscrizione Club SABINA!">
+            <form action="https://formspree.io/f/xoqgendl" method="POST" class="club-form">
+                <input type="hidden" name="_replyto" value="fabio@sabinamoda.com">
+                <input type="hidden" name="_subject" value="Nuova Iscrizione Club SABINA">
 
                 <div class="form-row form-group">
                     <div>
@@ -585,10 +548,6 @@
 
                 <button type="submit" class="btn-submit">Invia e Iscriviti</button>
             </form>
-
-            <div id="successMessage">
-                🖤 Dati inoltrati a Fabio. Benvenuta nel Club SABINA. Riceverai a breve le conferme direttamente sul tuo dispositivo.
-            </div>
         </div>
     </section>
 
@@ -605,29 +564,11 @@
     </footer>
 
     <script>
-        // Gestione asincrona del form per evitare il ricaricamento brutto della pagina di Formspree
-        const form = document.getElementById('fidelityForm');
-        const successMsg = document.getElementById('successMessage');
-
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const data = new FormData(form);
-            
-            // Invia i dati in background a Formspree (che li gira a fabio@sabinamoda.com)
-            const response = await fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (response.ok) {
-                form.reset();
-                form.style.display = 'none';
-                successMsg.style.display = 'block';
-            } else {
-                alert('Si è verificato un errore. Riprova più tardi.');
-            }
-        });
+        // Mostra la scritta elegante solo se il file assets/img/logo-sabina-white.svg non viene trovato
+        function showFallbackLogo() {
+            const container = document.querySelector('.logo-container');
+            container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#FFFFFF;">SABINA</span>';
+        }
     </script>
 </body>
 </html>
