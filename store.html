@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABINA | Dettagli Store</title>
+    <title>SABINA | Dettagli Store & Collezioni</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,10 +41,9 @@
             padding: 0 24px;
         }
 
-        .flex { display: flex; }
         .text-center { text-align: center; }
 
-        /* HEADER (Perfettamente allineato alla Home) */
+        /* HEADER */
         header {
             background-color: #000000;
             border-bottom: 1px solid var(--border-white);
@@ -73,7 +72,6 @@
             display: block;
         }
 
-        /* TORNA ALLA HOME */
         .btn-back {
             position: absolute;
             left: 24px;
@@ -90,27 +88,93 @@
             color: var(--accent-red);
         }
 
-        /* STORE HERO GALLERY */
-        .gallery-section {
+        /* STRUTTURA SLIDESHOW (16:9) */
+        .slider-section {
             padding: 40px 0;
         }
 
-        .main-image-container {
+        .slider-container {
+            position: relative;
             width: 100%;
-            aspect-ratio: 16 / 9; /* Layout orizzontale richiesto */
-            background-color: #1A1A1A;
-            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            background-color: #0A0A0A;
             border: 1px solid var(--border-white);
-            margin-bottom: 24px;
+            overflow: hidden;
         }
 
-        .main-image {
+        .slider-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
-        /* DETTAGLI STORE CONTENT */
+        /* Frecce Navigazione */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--text-main);
+            border: 1px solid var(--border-white);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 200;
+            z-index: 10;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .slider-arrow:hover {
+            background-color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        .arrow-left { left: 0; border-left: none; }
+        .arrow-right { right: 0; border-right: none; }
+
+        /* Indicatori Trattini */
+        .slider-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .indicator-line {
+            width: 35px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .indicator-line.active {
+            background-color: var(--accent-red);
+        }
+
+        /* DETTAGLI CONTENT */
         .store-details-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -119,9 +183,7 @@
         }
 
         @media (min-width: 768px) {
-            .store-details-grid {
-                grid-template-columns: 1.5fr 1fr;
-            }
+            .store-details-grid { grid-template-columns: 1.5fr 1fr; }
         }
 
         .store-title {
@@ -149,7 +211,7 @@
             margin-bottom: 32px;
         }
 
-        /* INFO CARD (ORARI & TELEFONO) */
+        /* INFO PANEL */
         .info-panel {
             border: 1px solid var(--border-white);
             padding: 40px 32px;
@@ -185,11 +247,8 @@
             transition: color 0.2s ease;
         }
 
-        .phone-link:hover {
-            color: var(--accent-red);
-        }
+        .phone-link:hover { color: var(--accent-red); }
 
-        /* ACCENTO ROSSO CHIRURGICO PER MAPS */
         .btn-accent {
             display: block;
             background-color: var(--accent-red);
@@ -207,11 +266,8 @@
             transition: opacity 0.2s ease;
         }
 
-        .btn-accent:hover {
-            opacity: 0.9;
-        }
+        .btn-accent:hover { opacity: 0.9; }
 
-        /* FOOTER */
         footer {
             padding: 48px 0;
             border-top: 1px solid var(--border-white);
@@ -235,14 +291,26 @@
 
     <main class="container">
         
-        <section class="gallery-section">
-            <div class="main-image-container">
-                <img id="store-main-img" src="" alt="SABINA Store" class="main-image">
+        <section class="slider-section">
+            <div class="slider-container">
+                <div class="slider-arrow arrow-left" onclick="moveSlide(-1)">❮</div>
+                <div class="slider-arrow arrow-right" onclick="moveSlide(1)">❯</div>
+                
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <div class="slide"><img id="img-slide-1" src="" alt="SABINA Gallery 1"></div>
+                    <div class="slide"><img id="img-slide-2" src="" alt="SABINA Gallery 2"></div>
+                    <div class="slide"><img id="img-slide-3" src="" alt="SABINA Gallery 3"></div>
+                </div>
+
+                <div class="slider-indicators">
+                    <div class="indicator-line active" onclick="setSlide(0)"></div>
+                    <div class="indicator-line" onclick="setSlide(1)"></div>
+                    <div class="indicator-line" onclick="setSlide(2)"></div>
+                </div>
             </div>
         </section>
 
         <section class="store-details-grid">
-            
             <div>
                 <h1 id="store-name" class="store-title">---</h1>
                 <span id="store-tag" class="store-type">---</span>
@@ -255,7 +323,7 @@
                     <a id="store-phone" href="tel:" class="phone-link">---</a>
 
                     <h3 class="info-block-title">Orari di Apertura</h3>
-                    <div id="store-hours-list">
+                    <div>
                         <div class="info-row"><span>Lunedì - Sabato</span> <span>09:00 - 13:00 / 16:00 - 20:00</span></div>
                         <div class="info-row"><span>Domenica</span> <span style="color: var(--accent-red)">Chiuso</span></div>
                     </div>
@@ -265,7 +333,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
 
@@ -274,56 +341,58 @@
     </footer>
 
     <script>
-        // Database interno dei 3 Store di Frosinone, Alatri e Veroli
+        // Database sicuro con estensione .jpg per gli slideshow interni
         const storeDatabase = {
             frosinone: {
                 name: "Frosinone",
                 tag: "Main Store",
-                desc: "Il cuore pulsante del brand SABINA...",
+                desc: "Il cuore pulsante del brand SABINA. Situato nella strategica Viale Europa, il Main Store offre la selezione completa e più profonda delle ultime novità Fast Fashion settimanali, affiancata da un corner esclusivo dedicato agli abiti da Cerimonia. Ampio parcheggio esterno e consulenza d'immagine personalizzata con il nostro staff storico.",
                 phone: "+39 0775 123456",
-                maps: "https://maps.google.com/?q=Viale+Europa+Frosinone+Sabina",
+                maps: "https://maps.google.com/?q=Sabina+Moda+Frosinone",
                 images: [
-                    "assets/img/store-frosinone-1.jpg", // <-- Impostato in .jpg
-                    "assets/img/store-frosinone-2.jpg", // <-- Impostato in .jpg
-                    "assets/img/store-frosinone-3.jpg"  // <-- Impostato in .jpg
+                    "assets/img/store-frosinone-1.jpg",
+                    "assets/img/store-frosinone-2.jpg",
+                    "assets/img/store-frosinone-3.jpg"
                 ]
             },
             alatri: {
                 name: "Alatri",
                 tag: "Boutique",
-                desc: "Situata in Via Provinciale 51...",
+                desc: "Situata in Via Provinciale 51, la boutique di Alatri unisce la freschezza delle trends della Gen Z ad un'atmosfera d'acquisto intima e curata. Perfetta per scoprire gli outfit quotidiani della settimana selezionati con cura per garantire sempre esclusività e stile minimale ad altissimo impatto.",
                 phone: "+39 0775 654321",
-                maps: "https://maps.google.com/?q=Via+Provinciale+51+Alatri+Sabina",
+                maps: "https://maps.google.com/?q=Sabina+Moda+Alatri",
                 images: [
-                    "assets/img/store-alatri-1.jpg",   // <-- Impostato in .jpg
-                    "assets/img/store-alatri-2.jpg",   // <-- Impostato in .jpg
-                    "assets/img/store-alatri-3.jpg"    // <-- Impostato in .jpg
+                    "assets/img/store-alatri-1.jpg",
+                    "assets/img/store-alatri-2.jpg",
+                    "assets/img/store-alatri-3.jpg"
                 ]
             },
             veroli: {
                 name: "Veroli",
                 tag: "Concept Store",
-                desc: "Il Concept Store di Veroli...",
+                desc: "Il Concept Store di Veroli in Via Sant'Angelo in Villa 22 è uno spazio geometrico e contemporaneo ideato per valorizzare l'identità Noir del brand. Una galleria di stile in cui perdersi tra i trend del momento e i consigli sartoriali Made in Italy ereditati da 25 anni di passione della fondatrice Sabina Perciballi.",
                 phone: "+39 0775 987654",
-                maps: "https://maps.google.com/?q=Via+Sant+Angelo+in+Villa+22+Veroli+Sabina",
+                maps: "https://maps.google.com/?q=Sabina+Moda+Veroli",
                 images: [
-                    "assets/img/store-veroli-1.jpg",    // <-- Impostato in .jpg
-                    "assets/img/store-veroli-2.jpg",    // <-- Impostato in .jpg
-                    "assets/img/store-veroli-3.jpg"     // <-- Impostato in .jpg
+                    "assets/img/store-veroli-1.jpg",
+                    "assets/img/store-veroli-2.jpg",
+                    "assets/img/store-veroli-3.jpg"
                 ]
             }
         };
 
-        // Rilevatore intelligente dell'indirizzo URL (?shop=nome)
+        // Lettura sicura del parametro ?shop= dall'indirizzo URL
         const urlParams = new URLSearchParams(window.location.search);
-        let shopKey = urlParams.get('shop') || 'frosinone'; // Default se manca il parametro
-
-        // Se l'utente scrive un nome strano nell'URL, fa il fallback su Frosinone
-        if (!storeDatabase[shopKey]) { shopKey = 'frosinone'; }
+        let shopKey = urlParams.get('shop');
+        
+        // Se il parametro è vuoto o sbagliato, forza il caricamento sicuro su frosinone
+        if (!shopKey || !storeDatabase[shopKey]) { 
+            shopKey = 'frosinone'; 
+        }
 
         const currentStore = storeDatabase[shopKey];
 
-        // Iniesta i dati dinamicamente nei tag corretti all'istante
+        // Iniesta istantaneamente i testi scacciando i trattini ---
         document.getElementById('store-name').innerText = currentStore.name;
         document.getElementById('store-tag').innerText = currentStore.tag;
         document.getElementById('store-description').innerText = currentStore.desc;
@@ -331,18 +400,57 @@
         const phoneElem = document.getElementById('store-phone');
         phoneElem.innerText = currentStore.phone;
         phoneElem.href = "tel:" + currentStore.phone.replace(/\s+/g, '');
-
         document.getElementById('store-maps-link').href = currentStore.maps;
 
-        // Gestione Foto Orizzontale con Fallback automatico
-        const imgElem = document.getElementById('store-main-img');
-        imgElem.src = currentStore.img;
-            // Se non hai ancora caricato la foto reale su GitHub, inserisce una foto stock elegante grigia di moda
-            this.src = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop";
-            this.style.filter = "grayscale(100%)";
-        };
+        // Inserimento immagini dello slideshow (.jpg)
+        document.getElementById('img-slide-1').src = currentStore.images[0];
+        document.getElementById('img-slide-2').src = currentStore.images[1];
+        document.getElementById('img-slide-3').src = currentStore.images[2];
 
-        // Fallback per il logo dell'header
+        // GESTIONE SLIDER
+        let currentSlideIndex = 0;
+        const wrapper = document.getElementById('sliderWrapper');
+        const indicators = document.querySelectorAll('.indicator-line');
+
+        function updateSliderPosition() {
+            wrapper.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            indicators.forEach((ind, idx) => {
+                if (idx === currentSlideIndex) {
+                    ind.classList.add('active');
+                } else {
+                    ind.classList.remove('active');
+                }
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex > 2) { currentSlideIndex = 0; }
+            if (currentSlideIndex < 0) { currentSlideIndex = 2; }
+            updateSliderPosition();
+        }
+
+        function setSlide(index) {
+            currentSlideIndex = index;
+            updateSliderPosition();
+        }
+
+        // Touch swipe per smartphone
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const sliderContainer = document.querySelector('.slider-container');
+
+        sliderContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        sliderContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            const threshold = 50;
+            if (touchStartX - touchEndX > threshold) moveSlide(1);
+            if (touchEndX - touchStartX > threshold) moveSlide(-1);
+        }, {passive: true});
+
         function showFallbackLogo() {
             const container = document.querySelector('.logo-container');
             container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#FFFFFF;">SABINA</span>';
