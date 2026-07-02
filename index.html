@@ -8,18 +8,18 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=200;400;600;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-dark: #000000;
-            --bg-light: #FFFFFF;
-            --text-main: #FFFFFF;
+            --bg-dark: #FFFFFF;
+            --bg-light: #F9F9F9;
+            --text-main: #000000;
             --text-dark: #000000;
-            --text-muted: #A3A3A3;
+            --text-muted: #4A4A4A;
             --accent-red: #FF0000;
-            --border-white: rgba(255, 255, 255, 0.2);
-            --border-dark: rgba(0, 0, 0, 0.1);
+            --border-white: rgba(0, 0, 0, 0.1);
+            --border-dark: rgba(0, 0, 0, 0.15);
         }
 
         * {
@@ -56,7 +56,7 @@
         .btn-accent {
             display: inline-block;
             background-color: var(--accent-red);
-            color: var(--text-main);
+            color: #FFFFFF;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -79,9 +79,9 @@
             transform: translateY(-2px);
         }
 
-        /* HEADER RIGOROSAMENTE NERO */
+        /* HEADER ELEGANTE BIANCO */
         header {
-            background-color: #000000;
+            background-color: #FFFFFF;
             border-bottom: 1px solid var(--border-white);
             position: sticky;
             top: 0;
@@ -90,16 +90,16 @@
         }
 
         .nav-container {
-            position: relative; /* Necessario per il posizionamento mobile */
+            position: relative;
             display: flex;
             align-items: center;
-            justify-content: center; /* Forza la centratura matematica del logo su mobile */
+            justify-content: center;
             height: 90px;
         }
 
         @media (min-width: 768px) {
             .nav-container { 
-                justify-content: space-between; /* Su desktop allinea a sinistra e destra */
+                justify-content: space-between;
             }
         }
 
@@ -108,12 +108,12 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            margin: 0 auto; /* Centra autonomamente il blocco */
+            margin: 0 auto;
         }
 
         @media (min-width: 768px) {
             .logo-container {
-                margin: 0; /* Rimuove la centratura forzata solo su desktop */
+                margin: 0;
             }
         }
 
@@ -121,6 +121,7 @@
             max-height: 42px;
             width: auto;
             display: block;
+            filter: invert(1);
         }
 
         .nav-menu {
@@ -256,9 +257,9 @@
         .store-img-container {
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-color: #0A0A0A; /* Sfondo nero solido protettivo di fallback */
+            background-color: #F5F5F5;
             overflow: hidden;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             position: relative;
         }
 
@@ -267,7 +268,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            opacity: 1; /* Rimosso qualsiasi filtro instabile */
+            opacity: 1;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -313,7 +314,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(0,0,0,0.1);
             padding-top: 16px;
         }
 
@@ -390,8 +391,8 @@
         .checkbox-label { font-size: 0.75rem; color: #666666; }
 
         .btn-submit {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: #000000;
+            color: #FFFFFF;
             border: none;
             width: 100%;
             padding: 16px;
@@ -408,8 +409,8 @@
 
         #successMessage {
             display: none;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background-color: #000000;
+            color: #FFFFFF;
             padding: 32px;
             text-align: center;
             text-transform: uppercase;
@@ -457,12 +458,13 @@
             </nav>
         </div>
     </header>
-<section id="about" class="section-padding" style="background-color: #000000; padding-top: 80px; padding-bottom: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+
+    <section id="about" class="section-padding" style="background-color: #FFFFFF; padding-top: 80px; padding-bottom: 60px; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
         <div class="container" style="max-width: 800px; text-align: center;">
             <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; color: var(--accent-red); font-weight: 600; display: block; margin-bottom: 16px;">Dal 2000</span>
-            <h2 style="font-size: 1.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 32px; color: #FFFFFF;">Radici Profonde, Stile Contemporaneo</h2>
+            <h2 style="font-size: 1.85rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 32px; color: #000000;">Radici Profonde, Stile Contemporaneo</h2>
             
-            <p style="font-size: 1.05rem; font-weight: 200; color: #E5E5E5; line-height: 1.8; letter-spacing: 0.5px; margin-bottom: 24px;">
+            <p style="font-size: 1.05rem; font-weight: 200; color: #1A1A1A; line-height: 1.8; letter-spacing: 0.5px; margin-bottom: 24px;">
                 SABINA nasce da un’idea semplice di <strong>Sabina Perciballi</strong>: rendere la moda contemporanea un’esperienza accessibile, curata e vicina alle persone. Da oltre 25 anni camminiamo insieme a voi, affrontando i cambiamenti del tempo e anticipando i trend di ogni stagione con arrivi flash settimanali.
             </p>
             
@@ -476,8 +478,8 @@
                     align-items: center;
                     justify-content: center;
                     background-color: transparent;
-                    color: #FFFFFF;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    color: #000000;
+                    border: 1px solid rgba(0, 0, 0, 0.2);
                     padding: 16px 36px;
                     font-size: 0.8rem;
                     font-weight: 600;
@@ -486,20 +488,20 @@
                     text-decoration: none;
                     transition: all 0.3s ease;
                 " onmouseover="this.style.borderColor='var(--accent-red)'; this.style.color='var(--accent-red)';" 
-                   onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.color='#FFFFFF';">
+                   onmouseout="this.style.borderColor='rgba(0, 0, 0, 0.2)'; this.style.color='#000000';">
                     Trova lo store più vicino <span style="margin-left: 12px; transition: transform 0.3s ease;">↓</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="promo" class="section-padding" style="background-color: #050505; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 60px 0;">
+    <section id="promo" class="section-padding" style="background-color: #F9F9F9; border-top: 1px solid rgba(0, 0, 0, 0.05); border-bottom: 1px solid rgba(0, 0, 0, 0.05); padding: 60px 0;">
         <div class="container">
             <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;" id="promoGrid">
                 
                 <div>
                     <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent-red); font-weight: 600; display: block; margin-bottom: 12px;">DAL 30 GIUGNO</span>
-                    <h2 style="font-size: 1.8rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; color: #FFFFFF;">SALDI ESTATE 2026</h2>
+                    <h2 style="font-size: 1.8rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; color: #000000;">SALDI ESTATE 2026</h2>
                     <p style="font-size: 0.95rem; font-weight: 200; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; max-width: 550px;">
                         I Saldi Estivi SABINA si arricchiscono di un'iniziativa pensata per premiare la vostra fedeltà. Da oggi, ogni 35€ di spesa ricevi un esclusivo Coupon di 10€ da utilizzare sul tuo acquisto successivo. Un invito a scoprire i nuovi arrivi e le tendenze di stagione, con l'attenzione e la cura di sempre. Clicca per scoprire i dettagli della promozione e il regolamento.
                     </p>
@@ -522,7 +524,7 @@
 
                 <div style="justify-self: center; width: 100%; max-width: 280px;">
                     <a href="promozione.html" style="display: block; text-decoration: none;">
-                        <div style="position: relative; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; aspect-ratio: 3 / 4; background-color: #000;">
+                        <div style="position: relative; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; aspect-ratio: 3 / 4; background-color: #000;">
                             <img src="assets/img/locandina-saldi.jpg" alt="Locandina Saldi SABINA" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
                         </div>
                     </a>
@@ -562,7 +564,7 @@
                             <span class="store-tag">Viale Europa 24/26</span>
                             <p class="store-info" style="margin-bottom: 12px;">Viale Europa 24/26</p>
                             
-                            <p style="font-size: 0.75rem; font-weight: 400; color: #FFFFFF; letter-spacing: 1px; margin-bottom: 4px;">LUN - SAB: 09:00 - 13:00 / 16:00 - 20:00</p>
+                            <p style="font-size: 0.75rem; font-weight: 400; color: #000000; letter-spacing: 1px; margin-bottom: 4px;">LUN - SAB: 09:00 - 13:00 / 16:00 - 20:00</p>
                             <p style="font-size: 0.75rem; font-weight: 400; color: var(--accent-red); letter-spacing: 1px;">DOMENICA: CHIUSO</p>
                             
                             <div class="action-indicator">
@@ -583,7 +585,7 @@
                             <span class="store-tag">Via Provinciale 51</span>
                             <p class="store-info" style="margin-bottom: 12px;">Via Provinciale 51</p>
                             
-                            <p style="font-size: 0.75rem; font-weight: 400; color: #FFFFFF; letter-spacing: 1px; margin-bottom: 4px;">LUN - SAB: 09:00 - 13:00 / 16:00 - 20:00</p>
+                            <p style="font-size: 0.75rem; font-weight: 400; color: #000000; letter-spacing: 1px; margin-bottom: 4px;">LUN - SAB: 09:00 - 13:00 / 16:00 - 20:00</p>
                             <p style="font-size: 0.75rem; font-weight: 400; color: var(--accent-red); letter-spacing: 1px;">DOMENICA: CHIUSO</p>
                             
                             <div class="action-indicator">
@@ -604,7 +606,7 @@
                             <span class="store-tag">Via S.Angelo in Villa 24/26</span>
                             <p class="store-info" style="margin-bottom: 12px;">Via Sant'Angelo in Villa 22</p>
                             
-                            <p style="font-size: 0.75rem; font-weight: 400; color: #FFFFFF; letter-spacing: 1px; margin-bottom: 4px;">LUN - SAB: 09:00 - 13:00 / 16:00 - 20:00</p>
+                            <p style="font-size: 0.75rem; font-weight: 400; color: #000000; letter-spacing: 1px; margin-bottom: 4px;">LUN - SAB: 09:00 - 13:00 / 16:00 - 20:00</p>
                             <p style="font-size: 0.75rem; font-weight: 400; color: var(--accent-red); letter-spacing: 1px;">DOMENICA: CHIUSO</p>
                             
                             <div class="action-indicator">
@@ -659,7 +661,7 @@
                 <div class="checkbox-group">
                     <input type="checkbox" id="privacy" required>
                     <label for="privacy" class="checkbox-label">
-                        Acconsento al trattamento dei dati personali per ricevere inviti e regali di compleanno esclusivi in store. <a href="#" style="color: var(--text-dark); font-weight: 600;">Privacy Policy</a>.
+                        Acconsento al trattamento dei dati personali per ricevere inviti e regali di compleanno esclusivi in store. <a href="privacy.html" style="color: var(--text-dark); font-weight: 600;">Privacy Policy</a>.
                     </label>
                 </div>
 
@@ -685,17 +687,15 @@
     </footer>
 
     <script>
-        // Gestione logo se l'asset tarda ad arrivare
         function tryAlternativePath(imgElement) {
             if (imgElement.getAttribute('src') === 'assets/img/logo-sabina-white.svg') {
                 imgElement.src = './assets/img/logo-sabina-white.svg';
             } else {
                 const container = document.querySelector('.logo-container');
-                container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#FFFFFF; text-transform:uppercase;">SABINA</span>';
+                container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#000000; text-transform:uppercase;">SABINA</span>';
             }
         }
 
-        // INVIO BACKGROUND FLUIDO
         const form = document.getElementById('fidelityForm');
         const successMsg = document.getElementById('successMessage');
         const submitBtn = document.getElementById('submitBtn');
