@@ -11,13 +11,13 @@
 
     <style>
         :root {
-            --bg-dark: #000000;
-            --bg-light: #FFFFFF;
-            --text-main: #FFFFFF;
+            --bg-dark: #FFFFFF;
+            --bg-light: #F9F9F9;
+            --text-main: #000000;
             --text-dark: #000000;
-            --text-muted: #A3A3A3;
+            --text-muted: #4A4A4A;
             --accent-red: #FF0000;
-            --border-white: rgba(255, 255, 255, 0.2);
+            --border-white: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -45,7 +45,7 @@
 
         /* HEADER */
         header {
-            background-color: #000000;
+            background-color: #FFFFFF;
             border-bottom: 1px solid var(--border-white);
             width: 100%;
         }
@@ -70,6 +70,7 @@
             max-height: 42px;
             width: auto;
             display: block;
+            filter: invert(1);
         }
 
         .btn-back {
@@ -97,7 +98,7 @@
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            background-color: #0A0A0A;
+            background-color: #F5F5F5;
             border: 1px solid var(--border-white);
             overflow: hidden;
         }
@@ -127,8 +128,8 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: var(--text-main);
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000000;
             border: 1px solid var(--border-white);
             width: 50px;
             height: 50px;
@@ -146,6 +147,7 @@
         .slider-arrow:hover {
             background-color: var(--accent-red);
             border-color: var(--accent-red);
+            color: #FFFFFF;
         }
 
         .arrow-left { left: 0; border-left: none; }
@@ -165,7 +167,7 @@
         .indicator-line {
             width: 35px;
             height: 2px;
-            background-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
@@ -215,7 +217,7 @@
         .info-panel {
             border: 1px solid var(--border-white);
             padding: 40px 32px;
-            background-color: #050505;
+            background-color: #F9F9F9;
         }
 
         .info-block-title {
@@ -224,7 +226,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
             padding-bottom: 10px;
         }
 
@@ -252,7 +254,7 @@
         .btn-accent {
             display: block;
             background-color: var(--accent-red);
-            color: var(--text-main);
+            color: #FFFFFF;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -337,7 +339,7 @@
     </main>
 
     <footer class="text-center">
-        <p>© 2026 SABINA. ALL RIGHTS RESERVED.</p>
+        <p>© 2026 EFFE GROUP S.R.L.S. ALL RIGHTS RESERVED. P.IVA 03284010604</p>
     </footer>
 
     <script>
@@ -358,7 +360,7 @@
             alatri: {
                 name: "Alatri",
                 tag: "Via Provinciale 51",
-                desc: "Situato in Via Provinciale 51, lo store SABINA di Alatri è un salotto di stile intimo, minimale e fortemente contemporaneo. Vero e proprio punto di riferimento per chi ama sperimentare con la moda, lo spazio è interamente focalizzato sulle dinamiche del Fast Fashion più evoluto e sulle ultimissime tendenze globali. Uno spazio curato nei minimi dettagli, dove l'ossessione per l'estetica si sposa con un'attenzione totale e personalizzata verso la cliente. Il luogo ideale in cui scoprire, settimana dopo settimana, tutte le novità e i look imperdibili appena arrivati.",
+                desc: "Situato in Via Provinciale 51, lo store SABINA di Alatri è un salotto di stile intimo, minimale e fortemente contemporaneo. Vero e proprio punto di riferimento per chi ama sperimentare con la moda, lo spazio è interamente focalizzato sulle dinamiche del Fast Fashion più evoluto e sulle ultimissime tendenze globali. Uno spazio curato nei minimi dettagli, dove l'ossessione per l'estetica si sposa con un'attentione totale e personalizzata verso la cliente. Il luogo ideale in cui scoprire, settimana dopo settimana, tutte le novità e i look imperdibili appena arrivati.",
                 phone: "+39 0775 967755",
                 maps: "https://maps.app.goo.gl/5YuHExL3nMa3SMLcA",
                 images: [
@@ -381,18 +383,15 @@
             }
         };
 
-        // Lettura sicura del parametro ?shop= dall'indirizzo URL
         const urlParams = new URLSearchParams(window.location.search);
         let shopKey = urlParams.get('shop');
         
-        // Se il parametro è vuoto o sbagliato, forza il caricamento sicuro su frosinone
         if (!shopKey || !storeDatabase[shopKey]) { 
             shopKey = 'frosinone'; 
         }
 
         const currentStore = storeDatabase[shopKey];
 
-        // Iniesta istantaneamente i testi scacciando i trattini ---
         document.getElementById('store-name').innerText = currentStore.name;
         document.getElementById('store-tag').innerText = currentStore.tag;
         document.getElementById('store-description').innerText = currentStore.desc;
@@ -402,12 +401,10 @@
         phoneElem.href = "tel:" + currentStore.phone.replace(/\s+/g, '');
         document.getElementById('store-maps-link').href = currentStore.maps;
 
-        // Inserimento immagini dello slideshow (.jpg)
         document.getElementById('img-slide-1').src = currentStore.images[0];
         document.getElementById('img-slide-2').src = currentStore.images[1];
         document.getElementById('img-slide-3').src = currentStore.images[2];
 
-        // GESTIONE SLIDER
         let currentSlideIndex = 0;
         const wrapper = document.getElementById('sliderWrapper');
         const indicators = document.querySelectorAll('.indicator-line');
@@ -435,7 +432,6 @@
             updateSliderPosition();
         }
 
-        // Touch swipe per smartphone
         let touchStartX = 0;
         let touchEndX = 0;
         const sliderContainer = document.querySelector('.slider-container');
@@ -453,7 +449,7 @@
 
         function showFallbackLogo() {
             const container = document.querySelector('.logo-container');
-            container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#FFFFFF;">SABINA</span>';
+            container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#000000;">SABINA</span>';
         }
     </script>
 </body>
