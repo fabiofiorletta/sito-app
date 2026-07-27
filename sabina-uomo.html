@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SABINA UOMO | Prossima Apertura - Frosinone</title>
+    <meta name="description" content="SABINA UOMO: capi selezionati, Made in Italy. Dal casual alla cerimonia, la stessa cura del brand SABINA, ora anche per lui. Prossima apertura a Frosinone.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #FFFFFF;
+            --bg-light: #F9F9F9;
+            --text-main: #000000;
+            --text-dark: #000000;
+            --text-muted: #4A4A4A;
+            --accent-red: #FF0000;
+            --border-white: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-center { text-align: center; }
+
+        /* HEADER (stesso pattern di store.html) */
+        header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid var(--border-white);
+            width: 100%;
+        }
+
+        .nav-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            margin: 0 auto;
+        }
+
+        .logo-img {
+            max-height: 42px;
+            width: auto;
+            display: block;
+            filter: invert(1);
+        }
+
+        .btn-back {
+            position: absolute;
+            left: 24px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .btn-back:hover { color: var(--accent-red); }
+
+        /* HERO IMMAGINE */
+        .hero-section { padding: 40px 0; }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #000;
+            border: 1px solid var(--border-white);
+            overflow: hidden;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CONTENUTO */
+        .uomo-details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            padding: 40px 0 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .uomo-details-grid { grid-template-columns: 1.5fr 1fr; }
+        }
+
+        .uomo-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+        }
+
+        .uomo-type {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .uomo-lede {
+            font-size: 1.05rem;
+            font-weight: 200;
+            color: #1A1A1A;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .uomo-lede strong { font-weight: 600; }
+
+        .uomo-desc {
+            font-size: 0.95rem;
+            font-weight: 200;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-top: 24px;
+        }
+
+        /* INFO PANEL (stesso stile di store.html) */
+        .info-panel {
+            border: 1px solid var(--border-white);
+            padding: 40px 32px;
+            background-color: #F9F9F9;
+        }
+
+        .info-block-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .info-list li {
+            font-size: 0.9rem;
+            font-weight: 200;
+            color: var(--text-muted);
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .info-list li:last-child { border-bottom: none; }
+
+        .info-list li strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border-white);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="btn-back">← Home</a>
+            <a href="index.html" class="logo-container">
+                <img src="assets/img/logo-sabina-white.svg" alt="SABINA" class="logo-img" id="mainLogo" onerror="showFallbackLogo()">
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero-section">
+            <div class="hero-image-container">
+                <img src="assets/img/sabinauomo.png" alt="SABINA UOMO">
+            </div>
+        </section>
+
+        <section class="uomo-details-grid">
+            <div>
+                <h1 class="uomo-title">SABINA UOMO</h1>
+                <span class="uomo-type">Prossima apertura — Frosinone</span>
+
+                <p class="uomo-lede">Capi selezionati, <strong>Made in Italy</strong>.</p>
+                <p class="uomo-lede">Dal casual alla cerimonia, la stessa cura di sempre — ora anche per lui.</p>
+
+                <p class="uomo-desc">
+                    La stessa attenzione e la stessa gentilezza che conosci da SABINA, applicate a
+                    una selezione pensata per ogni occasione: dal quotidiano casual allo streetwear,
+                    fino all'eleganza per la cerimonia.
+                </p>
+            </div>
+
+            <div>
+                <div class="info-panel">
+                    <h3 class="info-block-title">Cosa aspettarti</h3>
+                    <ul class="info-list">
+                        <li><strong>Selezione</strong> — capi scelti, non un assortimento generico</li>
+                        <li><strong>Made in Italy</strong> — qualità garantita sui capi in collezione</li>
+                        <li><strong>Servizio</strong> — la stessa cortesia e cura di SABINA</li>
+                        <li><strong>Target</strong> — dal casual allo streetwear, fino alla cerimonia</li>
+                    </ul>
+
+                    <div style="margin-top: 8px;">
+                        <a href="index.html#store" class="btn-back" style="position: static; display: inline-block;">← Torna ai punti vendita</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center">
+        <p>© 2026 EFFE GROUP S.R.L.S. ALL RIGHTS RESERVED. P.IVA 03284010604</p>
+    </footer>
+
+    <script>
+        function showFallbackLogo() {
+            const container = document.querySelector('.logo-container');
+            container.innerHTML = '<span style="font-weight:200; letter-spacing:6px; font-size:1.5rem; color:#000000;">SABINA</span>';
+        }
+    </script>
+</body>
+</html>
