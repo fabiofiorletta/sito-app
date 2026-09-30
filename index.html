@@ -504,13 +504,13 @@
             <div style="display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center;" id="promoGrid">
                 
                 <div>
-                    <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent-red); font-weight: 600; display: block; margin-bottom: 12px;">DAL 30 GIUGNO</span>
-                    <h2 style="font-size: 1.8rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; color: #000000;">SALDI ESTATE 2026</h2>
+                    <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent-red); font-weight: 600; display: block; margin-bottom: 12px;">Apertura — Sabato 3 Ottobre 2026</span>
+                    <h2 style="font-size: 1.8rem; font-weight: 400; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; color: #000000;">SABINA UOMO</h2>
                     <p style="font-size: 0.95rem; font-weight: 200; color: var(--text-muted); line-height: 1.7; margin-bottom: 32px; max-width: 550px;">
-                        I Saldi Estivi SABINA si arricchiscono di un'iniziativa pensata per premiare la vostra fedeltà. Da oggi, ogni 35€ di spesa ricevi un esclusivo Coupon di 10€ da utilizzare sul tuo acquisto successivo. Un invito a scoprire i nuovi arrivi e le tendenze di stagione, con l'attenzione e la cura di sempre. Clicca per scoprire i dettagli della promozione e il regolamento.
+                        Sabato 3 ottobre apre SABINA UOMO: capi selezionati, Made in Italy, dal casual alla cerimonia. Per l'inaugurazione vi aspettiamo con un buffet di benvenuto, finger food e bollicine, e uno sconto del 10% su tutti gli acquisti della giornata. Clicca per scoprire tutti i dettagli.
                     </p>
-                    
-                    <a href="promozione.html" style="
+
+                    <a href="sabina-uomo.html" style="
                         display: inline-block;
                         background-color: var(--accent-red);
                         color: #FFFFFF;
@@ -522,14 +522,14 @@
                         letter-spacing: 2px;
                         transition: opacity 0.2s ease;
                     " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
-                        Scopri i Dettagli e Locandina →
+                        Scopri i Dettagli dell'Apertura →
                     </a>
                 </div>
 
-                <div style="justify-self: center; width: 100%; max-width: 280px;">
-                    <a href="promozione.html" style="display: block; text-decoration: none;">
-                        <div style="position: relative; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; aspect-ratio: 3 / 4; background-color: #000;">
-                            <img src="assets/img/locandina-saldi.jpg" alt="Locandina Saldi SABINA" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="justify-self: center; width: 100%; max-width: 360px;">
+                    <a href="sabina-uomo.html" style="display: block; text-decoration: none;">
+                        <div style="position: relative; border: 1px solid rgba(0,0,0,0.1); overflow: hidden; aspect-ratio: 1920 / 1005; background-color: #000;">
+                            <img src="assets/img/sabinauomo.png" alt="SABINA UOMO - Apertura Sabato 3 Ottobre" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
                         </div>
                     </a>
                 </div>
@@ -542,7 +542,7 @@
         function rwdPromo() {
             const grid = document.getElementById('promoGrid');
             if(window.innerWidth >= 768) {
-                grid.style.gridTemplateColumns = '1fr 300px';
+                grid.style.gridTemplateColumns = '1fr 360px';
             } else {
                 grid.style.gridTemplateColumns = '1fr';
             }

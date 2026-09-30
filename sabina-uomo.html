@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SABINA UOMO | Prossima Apertura - SETTEMBRE 2026</title>
-    <meta name="description" content="SABINA UOMO: capi selezionati, Made in Italy. Dal casual alla cerimonia, la stessa cura del brand SABINA, ora anche per lui. Prossima apertura a Frosinone.">
+    <title>SABINA UOMO | Apertura Sabato 3 Ottobre 2026</title>
+    <meta name="description" content="SABINA UOMO: capi selezionati, Made in Italy. Apertura sabato 3 ottobre 2026 a Frosinone: buffet di benvenuto e sconto 10% su tutti gli acquisti della giornata.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,6 +42,10 @@
             padding: 0 24px;
         }
 
+        @media (max-width: 480px) {
+            .container { padding: 0 16px; }
+        }
+
         .text-center { text-align: center; }
 
         /* HEADER (stesso pattern di store.html) */
@@ -57,6 +61,10 @@
             align-items: center;
             justify-content: center;
             height: 90px;
+        }
+
+        @media (max-width: 480px) {
+            .nav-container { height: 64px; }
         }
 
         .logo-container {
@@ -88,18 +96,34 @@
 
         .btn-back:hover { color: var(--accent-red); }
 
+        @media (max-width: 480px) {
+            .btn-back {
+                left: 16px;
+                font-size: 0.6rem;
+                letter-spacing: 1px;
+            }
+        }
+
         /* HERO IMMAGINE */
         .hero-section { padding: 40px 0; }
+
+        @media (max-width: 480px) {
+            .hero-section { padding: 24px 0; }
+        }
 
         .hero-image-container {
             position: relative;
             width: 100%;
-            aspect-ratio: 3 / 4;
-            max-width: 480px;
+            aspect-ratio: 1920 / 1005;
+            max-width: 720px;
             margin: 0 auto;
             background-color: #000;
             border: 1px solid var(--border-white);
             overflow: hidden;
+        }
+
+        @media (max-width: 480px) {
+            .hero-image-container { max-width: 100%; }
         }
 
         .hero-image-container img {
@@ -121,12 +145,23 @@
             .uomo-details-grid { grid-template-columns: 1.5fr 1fr; }
         }
 
+        @media (max-width: 480px) {
+            .uomo-details-grid {
+                gap: 32px;
+                padding: 32px 0 56px 0;
+            }
+        }
+
         .uomo-title {
-            font-size: 2.5rem;
+            font-size: clamp(1.9rem, 9vw, 2.5rem);
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 4px;
             margin-bottom: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .uomo-title { letter-spacing: 2px; }
         }
 
         .uomo-type {
@@ -137,6 +172,14 @@
             font-weight: 600;
             margin-bottom: 24px;
             display: block;
+        }
+
+        @media (max-width: 480px) {
+            .uomo-type {
+                font-size: 0.7rem;
+                letter-spacing: 1.5px;
+                margin-bottom: 20px;
+            }
         }
 
         .uomo-lede {
@@ -157,11 +200,60 @@
             margin-top: 24px;
         }
 
+        /* EVENTO INAUGURAZIONE */
+        .event-highlight {
+            margin-top: 32px;
+            padding: 28px 32px;
+            background-color: #000000;
+        }
+
+        .event-highlight-label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-red);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .event-highlight-item {
+            display: flex;
+            gap: 12px;
+            font-size: 0.95rem;
+            font-weight: 200;
+            color: #FFFFFF;
+            line-height: 1.6;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .event-highlight-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .event-highlight-item:first-of-type { padding-top: 0; }
+
+        .event-highlight-item strong {
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .event-highlight { padding: 22px 20px; margin-top: 24px; }
+            .event-highlight-item { flex-direction: column; gap: 2px; }
+        }
+
         /* INFO PANEL (stesso stile di store.html) */
         .info-panel {
             border: 1px solid var(--border-white);
             padding: 40px 32px;
             background-color: #F9F9F9;
+        }
+
+        @media (max-width: 480px) {
+            .info-panel { padding: 28px 20px; }
         }
 
         .info-block-title {
@@ -225,7 +317,7 @@
         <section class="uomo-details-grid">
             <div>
                 <h1 class="uomo-title">SABINA UOMO</h1>
-                <span class="uomo-type">Prossima apertura — SETTEMBRE 2026</span>
+                <span class="uomo-type">Apertura — Sabato 3 Ottobre 2026</span>
 
                 <p class="uomo-lede">Capi selezionati, <strong>Made in Italy</strong>.</p>
                 <p class="uomo-lede">Dal casual alla cerimonia, la stessa cura di sempre — ora anche per lui.</p>
@@ -235,12 +327,21 @@
                     una selezione pensata per ogni occasione: dal quotidiano casual allo streetwear,
                     fino all'eleganza per la cerimonia.
                 </p>
+
+                <div class="event-highlight">
+                    <span class="event-highlight-label">Sabato 3 Ottobre — Giorno dell'inaugurazione</span>
+                    <p class="event-highlight-item"><strong>Buffet di benvenuto</strong> <span>finger food e bollicine per tutti gli ospiti</span></p>
+                    <p class="event-highlight-item"><strong>Sconto 10%</strong> <span>su tutti gli acquisti effettuati durante la giornata</span></p>
+                </div>
             </div>
 
             <div>
                 <div class="info-panel">
                     <h3 class="info-block-title">Cosa aspettarti</h3>
                     <ul class="info-list">
+                        <li><strong>Apertura</strong> — sabato 3 ottobre 2026</li>
+                        <li><strong>Buffet</strong> — finger food e bollicine di benvenuto</li>
+                        <li><strong>Sconto 10%</strong> — su tutti gli acquisti di sabato 3 ottobre</li>
                         <li><strong>Selezione</strong> — capi scelti, non un assortimento generico</li>
                         <li><strong>Made in Italy</strong> — qualità garantita sui capi in collezione</li>
                         <li><strong>Servizio</strong> — la stessa cortesia e cura di SABINA</li>
