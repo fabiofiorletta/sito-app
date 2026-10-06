@@ -291,6 +291,21 @@
             color: var(--text-muted);
             text-transform: uppercase;
         }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .social-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .social-link:hover { color: var(--accent-red); }
     </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -362,6 +377,7 @@ src="https://www.facebook.com/tr?id=1534449559978388&ev=PageView&noscript=1"
 
     <footer class="text-center">
         <p>© 2026 EFFE GROUP S.R.L.S. ALL RIGHTS RESERVED. P.IVA 03284010604</p>
+        <div class="footer-socials" id="footerSocials"></div>
     </footer>
 
     <script>
@@ -434,6 +450,30 @@ src="https://www.facebook.com/tr?id=1534449559978388&ev=PageView&noscript=1"
         if (shopKey === 'frosinoneuomo') {
             document.body.classList.add('theme-neutral');
         }
+
+        const socialsByTheme = {
+            donna: [
+                { label: 'Instagram', url: 'https://www.instagram.com/sabina.moda' },
+                { label: 'Facebook', url: 'https://www.facebook.com/sabina.moda' },
+                { label: 'TikTok', url: 'https://www.tiktok.com/@sabinamoda' }
+            ],
+            uomo: [
+                { label: 'Instagram', url: 'https://www.instagram.com/sabina.uomo' },
+                { label: 'Facebook', url: 'https://www.facebook.com/sabina.uomo' },
+                { label: 'TikTok', url: 'https://www.tiktok.com/@sabinauomo' }
+            ]
+        };
+
+        const socials = shopKey === 'frosinoneuomo' ? socialsByTheme.uomo : socialsByTheme.donna;
+        const footerSocials = document.getElementById('footerSocials');
+        socials.forEach(({ label, url }) => {
+            const a = document.createElement('a');
+            a.href = url;
+            a.target = '_blank';
+            a.className = 'social-link';
+            a.textContent = label;
+            footerSocials.appendChild(a);
+        });
 
         document.getElementById('store-name').innerText = currentStore.name;
         document.getElementById('store-tag').innerText = currentStore.tag;
