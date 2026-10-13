@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati Promo Locale | SABINA</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #0D0D0D;
+            --bg-light: #1A1A1A;
+            --text-main: #F5F5F5;
+            --text-muted: #A3A3A3;
+            --accent-red: #D99B9B;
+            --border-white: rgba(255, 255, 255, 0.14);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 24px 16px 60px 16px;
+        }
+
+        .container { max-width: 760px; margin: 0 auto; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .pin-screen {
+            max-width: 340px;
+            margin: 60px auto;
+            text-align: center;
+            border: 1px solid var(--border-white);
+            background-color: var(--bg-light);
+            padding: 32px 24px;
+        }
+
+        .pin-screen input {
+            width: 100%;
+            padding: 13px;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-white);
+            color: var(--text-main);
+            font-size: 1.3rem;
+            text-align: center;
+            letter-spacing: 6px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            width: 100%;
+            background-color: var(--accent-red);
+            color: #1A1010;
+            border: none;
+            padding: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.82rem;
+            cursor: pointer;
+        }
+
+        .error-text { color: var(--accent-red); font-size: 0.8rem; margin-top: 12px; display: none; }
+
+        #dashboard { display: none; }
+
+        .tiles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        @media (min-width: 600px) {
+            .tiles { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .tile {
+            border: 1px solid var(--border-white);
+            background-color: var(--bg-light);
+            padding: 20px 16px;
+            text-align: center;
+        }
+
+        .tile .value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent-red);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .tile .label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .panel {
+            border: 1px solid var(--border-white);
+            background-color: var(--bg-light);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .store-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .store-row:last-child { margin-bottom: 0; }
+
+        .store-row .name {
+            width: 80px;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .store-row .bar-track {
+            flex: 1;
+            height: 10px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-white);
+        }
+
+        .store-row .bar-fill {
+            height: 100%;
+            background: var(--accent-red);
+        }
+
+        .store-row .count {
+            width: 32px;
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .day-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 120px;
+            overflow-x: auto;
+        }
+
+        .day-bar {
+            flex: 0 0 auto;
+            width: 22px;
+            background: var(--accent-red);
+            min-height: 2px;
+            position: relative;
+        }
+
+        .day-labels {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .day-label {
+            flex: 0 0 auto;
+            width: 22px;
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            text-align: center;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+        }
+
+        .empty-note {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .refresh-row {
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .refresh-row button { width: auto; padding: 10px 24px; }
+
+        .last-updated {
+            text-align: center;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        .config-warning {
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-red);
+            border: 1px solid var(--accent-red);
+            background: rgba(217, 155, 155, 0.08);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Risultati Promo Locale</h1>
+        <p class="subtitle">Visite, coupon attivati e incasso generato dal biglietto</p>
+
+        <div class="pin-screen" id="pinScreen">
+            <label style="display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:10px;">PIN riservato</label>
+            <input type="password" id="pinInput" inputmode="numeric" maxlength="8" autocomplete="off">
+            <button onclick="checkPin()">Entra</button>
+            <div class="error-text" id="pinError">PIN errato.</div>
+        </div>
+
+        <div id="dashboard">
+            <div id="configWarning" class="config-warning" style="display:none;">
+                Backend non ancora configurato: manca l'URL dello script Google in questa pagina.
+            </div>
+
+            <div id="dataArea" style="display:none;">
+                <div class="tiles">
+                    <div class="tile">
+                        <span class="value" id="tileTotal">—</span>
+                        <span class="label">Coupon Usati</span>
+                    </div>
+                    <div class="tile">
+                        <span class="value" id="tileAmount">—</span>
+                        <span class="label">Scontrini Raccolti €</span>
+                    </div>
+                    <div class="tile">
+                        <span class="value" id="tileAvg">—</span>
+                        <span class="label">Scontrino Medio €</span>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h2 class="section-title">Per Negozio</h2>
+                    <div id="storeBreakdown"></div>
+                </div>
+
+                <div class="panel">
+                    <h2 class="section-title">Nel Tempo</h2>
+                    <div id="dayChart"></div>
+                </div>
+
+                <div class="refresh-row">
+                    <button onclick="loadStats()" style="max-width:200px; margin:0 auto; display:block;">Aggiorna</button>
+                    <p class="last-updated" id="lastUpdated"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === CONFIGURAZIONE — Fabio deve completare questi due valori ===
+        const API_URL = 'INSERISCI_QUI_URL_SCRIPT_GOOGLE'; // es: https://script.google.com/macros/s/XXXXX/exec
+        const DASHBOARD_KEY = 'CAMBIA-QUESTA-CHIAVE'; // deve combaciare con quella nello script Google
+        const OWNER_PIN = '2026'; // cambia questo PIN quando vuoi
+
+        function checkPin() {
+            const val = document.getElementById('pinInput').value;
+            if (val === OWNER_PIN) {
+                document.getElementById('pinScreen').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                loadStats();
+            } else {
+                document.getElementById('pinError').style.display = 'block';
+            }
+        }
+
+        document.getElementById('pinInput').addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') checkPin();
+        });
+
+        async function loadStats() {
+            if (API_URL.indexOf('INSERISCI_QUI') !== -1) {
+                document.getElementById('configWarning').style.display = 'block';
+                document.getElementById('dataArea').style.display = 'none';
+                return;
+            }
+
+            try {
+                const url = `${API_URL}?action=stats&key=${encodeURIComponent(DASHBOARD_KEY)}`;
+                const res = await fetch(url);
+                const data = await res.json();
+
+                if (!data.ok) {
+                    document.getElementById('configWarning').style.display = 'block';
+                    document.getElementById('configWarning').textContent = 'Impossibile leggere i dati: controlla che la chiave nella pagina combaci con quella nello script.';
+                    document.getElementById('dataArea').style.display = 'none';
+                    return;
+                }
+
+                document.getElementById('configWarning').style.display = 'none';
+                document.getElementById('dataArea').style.display = 'block';
+                renderStats(data);
+            } catch (err) {
+                document.getElementById('configWarning').style.display = 'block';
+                document.getElementById('configWarning').textContent = 'Errore di connessione. Riprova con "Aggiorna".';
+                document.getElementById('dataArea').style.display = 'none';
+            }
+        }
+
+        function renderStats(data) {
+            document.getElementById('tileTotal').textContent = data.totalRedemptions || 0;
+            document.getElementById('tileAmount').textContent = (data.totalAmount || 0).toFixed(2);
+            const avg = data.totalRedemptions ? (data.totalAmount / data.totalRedemptions) : 0;
+            document.getElementById('tileAvg').textContent = avg.toFixed(2);
+
+            const storeBox = document.getElementById('storeBreakdown');
+            const stores = data.byStore || {};
+            const maxStoreCount = Math.max(1, ...Object.values(stores));
+            if (Object.keys(stores).length === 0) {
+                storeBox.innerHTML = '<p class="empty-note">Nessun coupon ancora registrato.</p>';
+            } else {
+                storeBox.innerHTML = Object.entries(stores).map(([name, count]) => `
+                    <div class="store-row">
+                        <span class="name">${name}</span>
+                        <div class="bar-track"><div class="bar-fill" style="width:${(count / maxStoreCount) * 100}%"></div></div>
+                        <span class="count">${count}</span>
+                    </div>
+                `).join('');
+            }
+
+            const dayBox = document.getElementById('dayChart');
+            const days = data.byDay || [];
+            if (days.length === 0) {
+                dayBox.innerHTML = '<p class="empty-note">Nessun dato ancora disponibile.</p>';
+            } else {
+                const maxDayCount = Math.max(1, ...days.map(d => d.count));
+                const bars = days.map(d => `<div class="day-bar" style="height:${Math.max(4, (d.count / maxDayCount) * 100)}px" title="${d.date}: ${d.count}"></div>`).join('');
+                const labels = days.map(d => `<div class="day-label">${d.date.slice(5)}</div>`).join('');
+                dayBox.innerHTML = `<div class="day-chart">${bars}</div><div class="day-labels">${labels}</div>`;
+            }
+
+            document.getElementById('lastUpdated').textContent = 'Aggiornato: ' + new Date().toLocaleString('it-IT');
+        }
+    </script>
+</body>
+</html>
